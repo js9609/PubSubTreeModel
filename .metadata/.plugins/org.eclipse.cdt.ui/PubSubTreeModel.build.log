@@ -1,0 +1,6 @@
+22:49:18 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+
+22:49:18 Build Finished. 0 errors, 0 warnings. (took 70ms)
+

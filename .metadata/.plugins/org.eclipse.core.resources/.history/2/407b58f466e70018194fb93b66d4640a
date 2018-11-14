@@ -1,0 +1,37 @@
+/*
+ * Level.cpp
+ *
+ *  Created on: Nov 14, 2018
+ *      Author: jinbro
+ */
+#include "Subscriber.h"
+#include "Level.h"
+#include <iostream>
+using namespace std;
+
+
+Level::Level(){};
+Level::~Level(){};
+
+void Level::insertSubsriber(Subscriber *sub){
+	vector_sub.push_back(*sub);
+}
+int Level::getSize(){
+	return vector_sub.size();
+}
+//해당 Sub를 찾아서 지운다
+void Level::deleteSubscriber(Subscriber *sub){
+}
+Subscriber Level::getSubscriber(int position){
+	return vector_sub.at(position);
+}
+void Level::setLevel(int level){
+	this->level = level;
+}
+
+
+
+
+
+
+

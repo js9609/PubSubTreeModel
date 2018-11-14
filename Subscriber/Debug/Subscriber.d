@@ -1,0 +1,1 @@
+Subscriber.o: ../Subscriber.cpp

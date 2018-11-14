@@ -1,0 +1,145 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Nov 14, 2018
+ *      Author: jinbro
+ */
+
+#include <iostream>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <sys/epoll.h>
+#include <netinet/in.h>
+
+#include "json/json.h"
+#include <string>
+#include <string.h>
+#include <vector>
+#include "Subscriber.h"
+#include "Level.h"
+using namespace std;
+
+//Function 선언문
+void error_handling(char * msg); //Error Handling
+int calculateLevel(string subscription); // Subscription의 레벨을 반환함
+bool isIndependent(Subscriber *child, Subscriber *parent);
+bool findParent(Subscriber *child, Subscriber *parent);
+bool contains(string subscription_child, string subscription_parent);
+/******************/
+
+//Define 정의
+#define EPOLL_SIZE 256
+#define BUF_SIZE 100
+#define rootLevel 0
+#define MAX_LEVEL 6
+//***************/
+
+//전역변수
+Level levels[MAX_LEVEL + 1];
+//
+int main(int argc, char *argv[]) {
+
+	/** 서버 생성 **/
+	struct sockaddr_in serv_addr, clnt_addr;
+	socklen_t addr_size;
+	int serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+	memset(&serv_addr, 0, sizeof(serv_addr));
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+	serv_addr.sin_port = htons(atoi(argv[1]));
+	if (bind(serv_sock, (struct sockaddr*) &serv_addr, sizeof(serv_addr)) == -1)
+		error_handling("bind() error");
+	if (listen(serv_sock, 5) == -1)
+		error_handling("listen() error");
+	/**/
+
+	//epoll
+	struct epoll_event *ep_events;
+	struct epoll_event event;
+	int epfd, event_cnt;
+	/**/
+	epfd = epoll_create(EPOLL_SIZE);
+	ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+	//이벤트 처리에 서버 소켓 추가
+	event.events = EPOLLIN;
+	event.data.fd = serv_sock;
+	epoll_ctl(epfd, EPOLL_CTL_ADD, serv_sock, &event);
+
+	while (1) {
+		event_cnt = epoll_wait(epfd, ep_events, EPOLL_SIZE, -1);
+		if (event_cnt == -1) {
+			puts("epoll wait() error");
+			break;
+		}
+		for (int idx = 0; idx < event_cnt; idx++) {
+			//서버 소켓으로 들어온 신호 -- 연결 (Client.connect)
+			if (ep_events[idx].data.fd == serv_sock) {
+				addr_size = sizeof(clnt_addr);
+				int clnt_sock = accept(serv_sock, (struct sockaddr*) &clnt_addr,
+						&addr_size);
+				event.events = EPOLLIN;
+				event.data.fd = clnt_sock;
+				epoll_ctl(epfd, EPOLL_CTL_ADD, clnt_sock, &event);
+				printf("connected client : %d\n", clnt_sock);
+			} else {
+
+			}
+
+		}
+
+	}
+
+}
+
+void insertSubscriber(Subscriber *sub) {
+	int sub_level = calculateLevel(sub->getSubscription());
+	levels[sub_level].insertSubsriber(sub);
+
+	for (int idx = 0; idx < levels[rootLevel].getSize(); idx++) {
+		findParent(sub, levels[rootLevel].getSubscriber(idx));
+	}
+	//DFS 방법으로 Root에서 시작해서 Parent 찾기
+}
+
+//DFS 서치 //TODO
+bool findParent(Subscriber *child, Subscriber *parent) {
+	for (int cnt = 0; parent->getNumOfChilds(); cnt++) {
+			return findParent(parent->getChild(cnt), child);
+		}
+	}
+	return false;
+}
+
+//TODO Deletion 과정이 중요함.,, Parent와 Child를 연결시킬 수 있어야함
+void deleteSubscriber(Subscriber *sub) {
+	int sub_level = calculateLevel(sub->getSubscription());
+	levels[sub_level].deleteSubscriber(sub);
+}
+
+//Subscription이 종속관계에 있는지 파악
+bool isIndependent(Subscriber *child, Subscriber *parent) {
+	if (parent->getRemain_child() > 0){
+		return contains(child->getSubscription(), parent->getSubscription());
+	}
+	else
+		return true;
+}
+
+//TODO
+bool contains(string subscription_child, string subscription_parent) {
+	return true;
+}
+//TODO
+int calculateLevel(string subscription) {
+	return subscription.length();
+}
+
+void error_handling(char * msg) {
+	fputs(msg, stderr);
+	fputc('\n', stderr);
+	exit(1);
+}
+

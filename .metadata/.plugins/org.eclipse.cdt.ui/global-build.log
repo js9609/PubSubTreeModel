@@ -1,0 +1,3019 @@
+01:02:33 **** Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+In file included from ../Level.cpp:7:0:
+../Subscriber.h:28:72: error: expected ‘;’ at end of member declaration
+                 Subscriber(string ipaddr, int port, string subscription)
+                                                                        ^
+../Subscriber.h:44:2: error: expected ‘;’ after class definition
+ }
+  ^
+  ;
+../Subscriber.h:20:31: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+                 int sock_fd = NULL;
+                               ^~~~
+../Subscriber.h:22:28: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+                 int port = NULL;
+                            ^~~~
+In file included from ../Level.cpp:8:0:
+../Level.h:17:14: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  int level = NULL;
+              ^~~~
+make: *** [Level.o] Error 1
+subdir.mk:27: recipe for target 'Level.o' failed
+01:03:20 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+In file included from ../Level.cpp:7:0:
+../Subscriber.h:44:2: error: expected ‘;’ after class definition
+ }
+  ^
+  ;
+In file included from ../Level.cpp:8:0:
+../Level.h:17:14: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  int level = NULL;
+              ^~~~
+make: *** [Level.o] Error 1
+subdir.mk:27: recipe for target 'Level.o' failed
+01:20:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+In file included from ../Level.cpp:7:0:
+../Subscriber.h:47:2: error: expected ‘;’ after class definition
+ }
+  ^
+  ;
+make: *** [Level.o] Error 1
+subdir.mk:27: recipe for target 'Level.o' failed
+01:26:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+In file included from ../Level.cpp:7:0:
+../Subscriber.h:47:2: error: expected ‘;’ after class definition
+ }
+  ^
+  ;
+In file included from ../Level.cpp:8:0:
+../Level.h:21:17: error: invalid constructor; you probably meant ‘Level (const Level&)’
+  Level(Level obj);
+                 ^
+../Level.cpp:13:1: error: prototype for ‘Level::Level(Level)’ does not match any in class ‘Level’
+ Level::Level(Level obj){
+ ^~~~~
+In file included from ../Level.cpp:8:0:
+../Level.h:15:7: error: candidates are: Level::Level(const Level&)
+ class Level{
+       ^~~~~
+../Level.cpp:12:1: error:                 Level::Level()
+ Level::Level(){};
+ ^~~~~
+make: *** [Level.o] Error 1
+subdir.mk:27: recipe for target 'Level.o' failed
+01:51:45 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+In file included from ../Level.cpp:7:0:
+../Subscriber.h:51:2: error: expected ‘;’ after class definition
+ }
+  ^
+  ;
+../Level.cpp:13:1: error: prototype for ‘Level::Level(Level*)’ does not match any in class ‘Level’
+ Level::Level(Level *obj){
+ ^~~~~
+In file included from ../Level.cpp:8:0:
+../Level.h:15:7: error: candidates are: Level::Level(const Level&)
+ class Level{
+       ^~~~~
+../Level.cpp:12:1: error:                 Level::Level()
+ Level::Level(){};
+ ^~~~~
+subdir.mk:27: recipe for target 'Level.o' failed
+make: *** [Level.o] Error 1
+01:54:49 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+In file included from ../Level.cpp:7:0:
+../Subscriber.h:50:2: error: expected ‘;’ after class definition
+ }
+  ^
+  ;
+subdir.mk:27: recipe for target 'Level.o' failed
+make: *** [Level.o] Error 1
+10:43:43 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Level.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Level.d" -MT"Level.o" -o "Level.o" "../Level.cpp"
+Finished building: ../Level.cpp
+ 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../jsoncpp.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"jsoncpp.d" -MT"jsoncpp.o" -o "jsoncpp.o" "../jsoncpp.cpp"
+Finished building: ../jsoncpp.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:54:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:56:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:65:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:44:08 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:54:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:56:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:65:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void error_handling(std::__cxx11::string)’:
+../main.cpp:142:19: error: cannot convert ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘const char*’ for argument ‘1’ to ‘int fputs(const char*, FILE*)’
+  fputs(msg, stderr);
+                   ^
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:44:36 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:54:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:56:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:65:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:45:01 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:54:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:56:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:65:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:46:11 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:47:24 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:50:32 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:50:50 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void error_handling(std::__cxx11::string)’:
+../main.cpp:143:19: error: cannot convert ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘const char*’ for argument ‘1’ to ‘int fputs(const char*, FILE*)’
+  fputs(msg, stderr);
+                   ^
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:50:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void error_handling(std::__cxx11::string)’:
+../main.cpp:143:19: error: cannot convert ‘std::__cxx11::string {aka std::__cxx11::basic_string<char>}’ to ‘const char*’ for argument ‘1’ to ‘int fputs(const char*, FILE*)’
+  fputs(msg, stderr);
+                   ^
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:51:18 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:51:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:52:40 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:57:09 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:20: error: invalid conversion from ‘void*’ to ‘epoll_event*’ [-fpermissive]
+  ep_events = malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+              ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:58:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp:66:80: error: cannot convert ‘main(int, char**)::epoll_vent*’ to ‘epoll_event*’ in assignment
+  ep_events = (struct epoll_vent*)malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+                                                                                ^
+../main.cpp:66:22: note: class type ‘main(int, char**)::epoll_vent’ is incomplete
+  ep_events = (struct epoll_vent*)malloc(sizeof(struct epoll_event) * EPOLL_SIZE);
+                      ^~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:58:37 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Level.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+10:59:20 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp: In function ‘void error_handling(std::__cxx11::string*)’:
+../main.cpp:143:19: error: cannot convert ‘std::__cxx11::string* {aka std::__cxx11::basic_string<char>*}’ to ‘const char*’ for argument ‘1’ to ‘int fputs(const char*, FILE*)’
+  fputs(msg, stderr);
+                   ^
+make: *** [main.o] Error 1
+subdir.mk:27: recipe for target 'main.o' failed
+10:59:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+../main.cpp: In function ‘void error_handling(std::__cxx11::string*)’:
+../main.cpp:143:19: error: cannot convert ‘std::__cxx11::string* {aka std::__cxx11::basic_string<char>*}’ to ‘const char*’ for argument ‘1’ to ‘int fputs(const char*, FILE*)’
+  fputs(msg, stderr);
+                   ^
+subdir.mk:27: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+10:59:34 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:55:32: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("bind() error");
+                                ^
+../main.cpp:57:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("listen() error");
+                                  ^
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Level.o ./Subscriber.o ./jsoncpp.o ./main.o   
+./main.o: In function `main':
+/home/jinbro/Desktop/Eclipse/PubSubTreeModel/Debug/../main.cpp:55: undefined reference to `error_handling(char*)'
+makefile:44: recipe for target 'PubSubTreeModel' failed
+/home/jinbro/Desktop/Eclipse/PubSubTreeModel/Debug/../main.cpp:57: undefined reference to `error_handling(char*)'
+collect2: error: ld returned 1 exit status
+make: *** [PubSubTreeModel] Error 1
+11:00:01 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Level.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+11:00:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Level.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+11:05:46 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Level.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:37:24 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:111:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool insertSubscriber(Subscriber*, Subscriber*)’:
+../main.cpp:131:29: error: lvalue required as left operand of assignment
+     parent->getChild(cdx) = child;
+                             ^~~~~
+../main.cpp:141:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:24: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+12:40:16 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:111:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool insertSubscriber(Subscriber*, Subscriber*)’:
+../main.cpp:141:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:48:44 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:123:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:48:45 **** Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:50:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   error_handling("connect() error!");
+                                    ^
+../Subscriber.cpp:28:9: warning: unused variable ‘str_len’ [-Wunused-variable]
+     int str_len;
+         ^~~~~~~
+../Subscriber.cpp:29:25: warning: unused variable ‘my_serv_sock’ [-Wunused-variable]
+     int main_serv_sock, my_serv_sock;;
+                         ^~~~~~~~~~~~
+../Subscriber.cpp:32:24: warning: unused variable ‘my_serv_addr’ [-Wunused-variable]
+     struct sockaddr_in my_serv_addr;
+                        ^~~~~~~~~~~~
+../Subscriber.cpp:33:15: warning: unused variable ‘addr_size’ [-Wunused-variable]
+     socklen_t addr_size;
+               ^~~~~~~~~
+Finished building: ../Subscriber.cpp
+ 
+Building target: Subscriber
+Invoking: GCC C++ Linker
+g++  -o "Subscriber"  ./Subscriber.o   
+Finished building target: Subscriber
+ 
+12:50:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:50:26 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:19:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg);
+                     ^~~~~~
+../Subscriber.cpp:19:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:19:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:49:3: error: ‘error_handling’ was not declared in this scope
+   error_handling("connect() error!");
+   ^~~~~~~~~~~~~~
+../Subscriber.cpp:32:15: warning: unused variable ‘addr_size’ [-Wunused-variable]
+     socklen_t addr_size;
+               ^~~~~~~~~
+../Subscriber.cpp: At global scope:
+../Subscriber.cpp:58:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg)
+                     ^~~~~~
+../Subscriber.cpp:58:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:58:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+make: *** [Subscriber.o] Error 1
+12:50:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:50:57 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:21:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg);
+                     ^~~~~~
+../Subscriber.cpp:21:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:21:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:51:3: error: ‘error_handling’ was not declared in this scope
+   error_handling("connect() error!");
+   ^~~~~~~~~~~~~~
+../Subscriber.cpp:34:15: warning: unused variable ‘addr_size’ [-Wunused-variable]
+     socklen_t addr_size;
+               ^~~~~~~~~
+../Subscriber.cpp: At global scope:
+../Subscriber.cpp:60:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg)
+                     ^~~~~~
+../Subscriber.cpp:60:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:60:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+make: *** [Subscriber.o] Error 1
+12:51:09 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:51:09 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:21:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg);
+                     ^~~~~~
+../Subscriber.cpp:21:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:21:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:51:3: error: ‘error_handling’ was not declared in this scope
+   error_handling("connect() error!");
+   ^~~~~~~~~~~~~~
+../Subscriber.cpp:34:15: warning: unused variable ‘addr_size’ [-Wunused-variable]
+     socklen_t addr_size;
+               ^~~~~~~~~
+../Subscriber.cpp: At global scope:
+../Subscriber.cpp:60:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg)
+                     ^~~~~~
+../Subscriber.cpp:60:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:60:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+make: *** [Subscriber.o] Error 1
+12:51:24 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:51:24 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:17:10: fatal error: json/json.h: No such file or directory
+ #include "json/json.h"
+          ^~~~~~~~~~~~~
+compilation terminated.
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+make: *** [Subscriber.o] Error 1
+12:51:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:51:31 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:21:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg);
+                     ^~~~~~
+../Subscriber.cpp:21:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:21:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:51:3: error: ‘error_handling’ was not declared in this scope
+   error_handling("connect() error!");
+   ^~~~~~~~~~~~~~
+../Subscriber.cpp:34:15: warning: unused variable ‘addr_size’ [-Wunused-variable]
+     socklen_t addr_size;
+               ^~~~~~~~~
+../Subscriber.cpp: At global scope:
+../Subscriber.cpp:60:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg)
+                     ^~~~~~
+../Subscriber.cpp:60:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:60:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+make: *** [Subscriber.o] Error 1
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+12:52:49 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:52:49 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:20:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg);
+                     ^~~~~~
+../Subscriber.cpp:20:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:20:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:49:3: error: ‘error_handling’ was not declared in this scope
+   error_handling("connect() error!");
+   ^~~~~~~~~~~~~~
+../Subscriber.cpp: At global scope:
+../Subscriber.cpp:57:21: error: variable or field ‘error_handling’ declared void
+ void error_handling(string msg)
+                     ^~~~~~
+../Subscriber.cpp:57:21: error: ‘string’ was not declared in this scope
+../Subscriber.cpp:57:21: note: suggested alternatives:
+In file included from /usr/include/c++/7/iosfwd:39:0,
+                 from /usr/include/c++/7/ios:38,
+                 from /usr/include/c++/7/ostream:38,
+                 from /usr/include/c++/7/iostream:39,
+                 from ../Subscriber.cpp:7:
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+   typedef basic_string<char>    string;
+                                 ^~~~~~
+/usr/include/c++/7/bits/stringfwd.h:74:33: note:   ‘std::__cxx11::string’
+make: *** [Subscriber.o] Error 1
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+12:53:08 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:53:08 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:30:9: warning: variable ‘str_len’ set but not used [-Wunused-but-set-variable]
+     int str_len;
+         ^~~~~~~
+Finished building: ../Subscriber.cpp
+ 
+Building target: Subscriber
+Invoking: GCC C++ Linker
+g++  -o "Subscriber"  ./Subscriber.o   
+Finished building target: Subscriber
+ 
+12:53:21 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:53:22 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:55:14 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:72:43: error: no matching function for call to ‘epoll_event::epoll_event(void*)’
+    sizeof(struct epoll_event) * EPOLL_SIZE);
+                                           ^
+In file included from ../main.cpp:15:0:
+/usr/include/x86_64-linux-gnu/sys/epoll.h:83:8: note: candidate: epoll_event::epoll_event()
+ struct epoll_event
+        ^~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/sys/epoll.h:83:8: note:   candidate expects 0 arguments, 1 provided
+/usr/include/x86_64-linux-gnu/sys/epoll.h:83:8: note: candidate: constexpr epoll_event::epoll_event(const epoll_event&)
+/usr/include/x86_64-linux-gnu/sys/epoll.h:83:8: note:   no known conversion for argument 1 from ‘void*’ to ‘const epoll_event&’
+/usr/include/x86_64-linux-gnu/sys/epoll.h:83:8: note: candidate: constexpr epoll_event::epoll_event(epoll_event&&)
+/usr/include/x86_64-linux-gnu/sys/epoll.h:83:8: note:   no known conversion for argument 1 from ‘void*’ to ‘epoll_event&&’
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:123:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+subdir.mk:24: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+12:55:15 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:55:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:123:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:55:24 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:56:16 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:128:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:56:17 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:56:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:127:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:56:58 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:57:53 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:57:54 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:58:04 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:58:04 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:58:20 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+12:58:21 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+12:59:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:59:31 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:40:17: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     char* buf = "asb";
+                 ^~~~~
+../Subscriber.cpp:53:37: error: expected primary-expression before ‘,’ token
+     str_len = write(main_serv_sock, , );
+                                     ^
+../Subscriber.cpp:53:39: error: expected primary-expression before ‘)’ token
+     str_len = write(main_serv_sock, , );
+                                       ^
+../Subscriber.cpp:40:11: warning: unused variable ‘buf’ [-Wunused-variable]
+     char* buf = "asb";
+           ^~~
+../Subscriber.cpp:41:9: warning: unused variable ‘bufSize’ [-Wunused-variable]
+     int bufSize = 256;
+         ^~~~~~~
+subdir.mk:18: recipe for target 'Subscriber.o' failed
+make: *** [Subscriber.o] Error 1
+12:59:44 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+12:59:45 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:40:17: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     char* buf = "asb";
+                 ^~~~~
+../Subscriber.cpp:30:9: warning: variable ‘str_len’ set but not used [-Wunused-but-set-variable]
+     int str_len;
+         ^~~~~~~
+Finished building: ../Subscriber.cpp
+ 
+Building target: Subscriber
+Invoking: GCC C++ Linker
+g++  -o "Subscriber"  ./Subscriber.o   
+Finished building target: Subscriber
+ 
+13:00:24 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:130:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:00:25 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:00:53 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:100:22: error: conversion from ‘Subscriber*’ to non-scalar type ‘Subscriber’ requested
+     Subscriber sub = new Subscriber();
+                      ^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:126:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:24: recipe for target 'main.o' failed
+13:00:53 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:01:02 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:100:22: error: conversion from ‘Subscriber*’ to non-scalar type ‘Subscriber’ requested
+     Subscriber sub = new Subscriber();
+                      ^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:126:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:24: recipe for target 'main.o' failed
+13:01:02 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:02:06 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:100:22: error: conversion from ‘Subscriber*’ to non-scalar type ‘Subscriber’ requested
+     Subscriber sub = new Subscriber();
+                      ^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:126:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+subdir.mk:24: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+13:02:07 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:02:16 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:100:22: error: conversion from ‘Subscriber*’ to non-scalar type ‘Subscriber’ requested
+     Subscriber sub = new Subscriber();
+                      ^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:126:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:24: recipe for target 'main.o' failed
+13:02:16 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:02:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:100:22: error: conversion from ‘Subscriber*’ to non-scalar type ‘Subscriber’ requested
+     Subscriber sub = new Subscriber();
+                      ^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:126:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:24: recipe for target 'main.o' failed
+13:02:24 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:02:52 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:126:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:02:53 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:07:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:131:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:07:30 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp: In function ‘int main(int, char**)’:
+../Subscriber.cpp:40:17: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     char* buf = "asb";
+                 ^~~~~
+../Subscriber.cpp:30:9: warning: variable ‘str_len’ set but not used [-Wunused-but-set-variable]
+     int str_len;
+         ^~~~~~~
+Finished building: ../Subscriber.cpp
+ 
+Building target: Subscriber
+Invoking: GCC C++ Linker
+g++  -o "Subscriber"  ./Subscriber.o   
+Finished building target: Subscriber
+ 
+13:07:36 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:07:36 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:30:13 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:130:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool insertSubscriber(Subscriber*, Subscriber*)’:
+../main.cpp:159:13: error: ‘int Subscriber::remain_child’ is private within this context
+  if(parent->remain_child > 0){
+             ^~~~~~~~~~~~
+In file included from ../main.cpp:22:0:
+../Subscriber.h:10:17: note: declared private here
+ #define CHILD_N 3
+                 ^
+../Subscriber.h:21:36: note: in expansion of macro ‘CHILD_N’
+                 int remain_child = CHILD_N;
+                                    ^~~~~~~
+make: *** [main.o] Error 1
+subdir.mk:24: recipe for target 'main.o' failed
+13:30:14 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:30:36 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:130:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:30:37 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:34:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:133:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:34:32 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:36:12 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:133:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:36:13 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:41:19 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:132:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool insertSubscriber(Subscriber*, Subscriber*)’:
+../main.cpp:165:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:41:20 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:42:55 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:132:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool insertSubscriber(Subscriber*, Subscriber*)’:
+../main.cpp:166:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:42:56 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:51:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:132:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:51:30 **** Incremental Build of configuration Debug for project Subscriber ****
+make all 
+make: Nothing to be done for 'all'.
+13:53:03 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:53:56 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:54:01 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:54:35 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:55:10 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:55:27 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:57:48 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:58:14 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:58:35 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:58:37 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:58:39 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+13:59:36 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:01:38 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:15:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:18:09 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:21:07 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:132:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:22:13 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:22:58 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:24:24 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:26:09 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:27:03 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:132:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:27:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:27:45 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:132:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:31:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:125:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:37:27 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:130:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:37:28 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:37:34 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:38:11 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:130:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:40:42 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:131:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:40:50 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:59:11 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:135:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+14:59:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:59:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:59:49 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+14:59:50 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:00:11 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:00:17 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:00:42 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:00:43 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:26 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:27 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:28 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:34 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:52 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:01:54 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:02:17 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:02:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:07 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:08 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:06:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:08:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:09:17 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:09:58 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+15:31:36 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:48:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:140:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+15:39:52 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:132:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:141:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+15:40:29 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:134:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:142:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+15:50:49 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+../Subscriber.cpp:83:6: error: prototype for ‘void Subscriber::toggleChanged()’ does not match any in class ‘Subscriber’
+ void Subscriber::toggleChanged(){
+      ^~~~~~~~~~
+In file included from ../Subscriber.cpp:10:0:
+../Subscriber.h:51:22: error: candidate is: bool Subscriber::toggleChanged()
+                 bool toggleChanged();
+                      ^~~~~~~~~~~~~
+subdir.mk:24: recipe for target 'Subscriber.o' failed
+make: *** [Subscriber.o] Error 1
+15:53:14 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:136:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:144:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+16:00:54 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:135:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:143:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+16:01:08 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:01:55 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:02:58 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:03:58 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:04:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:06:53 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:138:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:146:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+16:06:56 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:07:36 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:116:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int idx = 0; idx < vector_root.size(); idx++){
+                       ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:138:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:146:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+16:07:38 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:09:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:36:39 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:116:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int idx = 0; idx < vector_root.size(); idx++){
+                       ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:138:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void buildTree(Subscriber*)’:
+../main.cpp:146:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:154:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+16:40:26 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:116:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int idx = 0; idx < vector_root.size(); idx++){
+                       ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:138:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:146:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:155:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+16:40:28 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+16:41:21 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+18:50:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:120:10: error: no ‘operator++(int)’ declared for postfix ‘++’ [-fpermissive]
+      port++;
+      ~~~~^~
+../main.cpp:122:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++) {
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:145:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:157:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:165:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+subdir.mk:24: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+18:51:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:122:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++) {
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:145:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:157:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:165:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+18:51:34 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:02:41 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:121:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++) {
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:144:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:156:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:164:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:02:49 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:04:09 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:04:35 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:04:48 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:04:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:05:17 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:06:32 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:08:10 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:122:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++) {
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:145:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:157:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:165:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:08:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:08:18 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:09:46 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:121:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++) {
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:144:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:151:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:158:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:166:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:09:53 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:19:12 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:124:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:151:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:158:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:166:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:174:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:182:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:19:16 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:23:22 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:124:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:153:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:162:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:172:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:180:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:188:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:23:43 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:25:33 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:26:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:124:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:153:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:162:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:172:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:180:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:188:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:26:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:26:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:52:39 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:189:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:256:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp:260:3: error: expected ‘;’ before ‘}’ token
+   }
+   ^
+../main.cpp:263:14: error: ‘int Subscriber::sock_fd’ is private within this context
+   write(sub->sock_fd, buf, BUF_SIZE);
+              ^~~~~~~
+In file included from ../main.cpp:22:0:
+../Subscriber.h:20:31: note: declared private here
+                 int sock_fd= -1;
+                               ^
+subdir.mk:24: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+19:53:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:189:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:256:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp:263:14: error: ‘int Subscriber::sock_fd’ is private within this context
+   write(sub->sock_fd, buf, BUF_SIZE);
+              ^~~~~~~
+In file included from ../main.cpp:22:0:
+../Subscriber.h:20:31: note: declared private here
+                 int sock_fd= -1;
+                               ^
+subdir.mk:24: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
+19:53:33 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:189:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:256:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:53:38 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:53:59 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:54:00 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:54:00 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:54:01 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:55:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:189:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:256:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:55:30 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:56:20 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+19:59:19 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:190:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:257:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+19:59:21 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:02:06 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:190:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:256:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+20:02:08 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:02:10 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:08:03 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:190:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:256:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+20:08:07 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:10:45 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:154:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:163:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:173:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:181:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:190:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:257:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+20:10:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:20:16 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:22:12 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:37:54 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:41:14 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:42:07 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:43:12 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:44:45 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:44:54 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:44:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:04 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:06 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:06 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:08 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:09 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:13 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:14 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:17 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:45:53 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:46:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:46:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:48:59 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:49:01 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:51:59 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:125:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:133:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for(int idx = 0; idx < vector_root.size(); idx++)
+                       ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:155:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:164:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:174:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:182:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:191:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:258:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+20:52:00 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+20:54:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:08:35 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:14:50 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:16:49 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:21:25 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:21:34 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:22:35 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:23:52 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:27:01 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:28:23 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:30:02 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:31:39 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:33:07 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:36:32 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:42:45 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:45:31 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:49:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:50:11 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+21:52:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+22:07:18 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+22:38:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Publisher.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Publisher.d" -MT"Publisher.o" -o "Publisher.o" "../Publisher.cpp"
+Finished building: ../Publisher.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:126:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:134:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++)
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnAttr(std::__cxx11::string)’:
+../main.cpp:156:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:165:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:175:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:183:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:192:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:259:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘void sendRootInfo(int)’:
+../main.cpp:274:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:18:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp:276:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int idx = 0; idx < vector_root.size(); idx++){
+                   ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Publisher.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+22:41:47 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+22:46:32 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+22:47:13 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+22:47:15 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.
+22:49:18 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+make: Nothing to be done for 'all'.

@@ -1,0 +1,23 @@
+/*
+ * Level.cpp
+ *
+ *  Created on: Nov 14, 2018
+ *      Author: jinbro
+ */
+#include "Subscriber.h"
+#include "Level.h"
+
+#include <iostream>
+using namespace std;
+
+Level::Level(){};
+Level::~Level(){};
+
+void Level::insertSubsriber(Subscriber *sub){
+	vector_sub.push_back(*sub);
+
+}
+
+
+
+
