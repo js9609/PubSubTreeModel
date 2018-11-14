@@ -35,6 +35,8 @@ struct sockaddr_in* returnSockAddr(int port);
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
 
+vector<int> sub_roots;
+
 int main(int argc, char *argv[]) {
 
 	vector<int> childsockets;
@@ -81,6 +83,7 @@ int main(int argc, char *argv[]) {
 		error_handling("connect() error!");
 	str_len = write(main_serv_sock, buf, BUF_SIZE);
 
+	//THREAD 로 처리 해야하나? 하나는 Server로부터 Sub에 대한 정보를 받고, 하나는 받은 Socket에게 정보를 전달?
 	while (1) {
 		char buf[BUF_SIZE];
 		event_cnt = epoll_wait(epfd, ep_events, EPOLL_SIZE, -1);
@@ -93,26 +96,27 @@ int main(int argc, char *argv[]) {
 			if (ep_events[i].data.fd == main_serv_sock) {
 				char buf[BUF_SIZE];
 				int strlen = read(main_serv_sock, buf, BUF_SIZE);
-				if (strlen != 0) {
-					for (int idx = 0; idx < getChildNum(buf); idx++) {
-						int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
-						struct sockaddr_in* child_serv_addr = returnSockAddr(
-								getChildPort(buf, idx));
-						event.events = EPOLLIN;
-						event.data.fd = child_serv_sock;
-						epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
-						//Connect to child Server
-						if (connect(child_serv_sock,
-								(struct sockaddr*) child_serv_addr,
-								sizeof(*child_serv_addr)) == -1)
-							error_handling("connect() error!");
-						char str[BUF_SIZE] = "A";
-						write(child_serv_sock, str, BUF_SIZE);
-					}
-				}
-			}
-		}
-	}
+				sub_roots.clear();
+				for (int idx = 0; idx < getChildNum(buf); idx++) {
+
+					int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+					struct sockaddr_in* child_serv_addr = returnSockAddr(
+							getChildPort(buf, idx));
+					event.events = EPOLLIN;
+					event.data.fd = child_serv_sock;
+					epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
+					//Connect to child Server
+					if (connect(child_serv_sock,
+							(struct sockaddr*) child_serv_addr,
+							sizeof(*child_serv_addr)) == -1)
+						error_handling("connect() error!");
+					sub_roots.push_back(child_serv_sock);
+				}//FOR서
+				//일단은 이 부분에서 큰 크기의 파일을 전송해보도록 하자 JSON 형식으로 attr 추가해서
+			}//IF SERV
+		}//FOR
+	}//WHILE
+
 	close(main_serv_sock);
 	return 0;
 }
@@ -146,4 +150,6 @@ void error_handling(string msg) {
 	cout << msg << endl;
 	exit(1);
 }
+
+
 

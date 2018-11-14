@@ -133,6 +133,7 @@ int main(int argc, char *argv[]) {
 					}
 					for (int idx = 0; idx < vector_root.size(); idx++)
 						sendToAllChild(vector_root.at(idx));
+
 				}
 			}
 		}
@@ -236,10 +237,26 @@ bool isDependent(Subscriber *child, Subscriber *parent) {
 
 //TODO
 bool contains(string subscription_child, string subscription_parent) {
+
 	if (subscription_child.length() < subscription_parent.length())
 		return true;
 	else
 		return false;
+
+}
+
+bool isSubset(string child, string parent) {
+	Json::Value childarray, parentarray;
+	Json::Reader reader;;
+	reader.parse(child, childarray);
+	reader.parse(parent, parentarray);
+
+	for (int cdx = 0; cdx < childarray.size(); cdx++) {
+		for (int pdx = 0; pdx < parentarray.size(); pdx++) {
+			parentarray[pdx].compare(childarray[cdx]);
+		}
+	}
+	return true;
 }
 
 void error_handling(string msg) {
@@ -269,11 +286,11 @@ void sendInfo(Subscriber* sub) {
 	}
 }
 
-void sendRootInfo(int sock_fd){
+void sendRootInfo(int sock_fd) {
 	Json::Value root;
 	Json::FastWriter writer;
 
-	for(int idx = 0; idx < vector_root.size(); idx++){
+	for (int idx = 0; idx < vector_root.size(); idx++) {
 		root[idx] = vector_root.at(idx)->getPort();
 	}
 	string str = writer.write(root);
