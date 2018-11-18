@@ -20,6 +20,7 @@
 using namespace std;
 
 //함수 정의
+void sendToSub(int sock_fd);
 int getChildPort(string buf, int pos);
 int returnPort(string buf);
 void error_handling(string msg);
@@ -28,26 +29,36 @@ struct sockaddr_in* returnSockAddr(int port);
 //전역변수 정의
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
-
+#define FILE_BUF_SIZE 30
 int main(int argc, char *argv[]) {
 
+	FILE *fp;
+	char filebuf[FILE_BUF_SIZE];
+	int read_cnt;
+
 	vector<int> childsockets;
-
-	Json::Value info;
-	string str;
-	cout << "Write Attr" << endl;
-	cin >> str;
-	info["attr"] = str;
-	info["type"] = "sub";
-	Json::FastWriter writer;
-
 	struct epoll_event *ep_events;
 	struct epoll_event event;
 	int epfd, event_cnt;
 
+	Json::Value info;
+	Json::Value attrarr;
+	int attrnum;
+	string atr;
+	cout << "HOW MANY ATTRIBUTES? : ";
+	cin >> attrnum;
+	for (int idx = 0; idx < attrnum; idx++) {
+		cin >> atr;
+		attrarr.append(atr);
+	}
+	info["attr"] = attrarr;
+	info["type"] = "sub";
+	info["port"] = atoi(argv[3]);
+	Json::FastWriter writer;
 	string attr = writer.write(info);
 	cout << attr << endl;
 	const char *buf = attr.c_str();
+
 	char char_port[BUF_SIZE];
 	int str_len;
 	int main_serv_sock, my_serv_sock;
@@ -57,8 +68,8 @@ int main(int argc, char *argv[]) {
 
 	socklen_t addr_size;
 
-	if (argc != 3) {
-		printf("Usage : %s <IP> <port>\n", argv[0]);
+	if (argc != 4) {
+		printf("Usage : %s <IP> <port> <myPort>\n", argv[0]);
 		exit(1);
 	}
 
@@ -79,20 +90,18 @@ int main(int argc, char *argv[]) {
 			sizeof(*main_serv_addr)) == -1)
 		error_handling("connect() error!");
 	str_len = write(main_serv_sock, buf, BUF_SIZE);
-	str_len = read(main_serv_sock, char_port, BUF_SIZE);
-
-	int port = returnPort(string(char_port));
-	printf("PORT RECEIVED : %d \n", port);
-
+	fp = fopen("receive.txt", "w");
 	my_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
-	my_serv_addr = returnSockAddr(port);
-
+	my_serv_addr = returnSockAddr(atoi(argv[3]));
+	int enable = 1;
+	if (setsockopt(my_serv_sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int))
+			< 0)
+		error_handling("setsockopt(SO_REUSEADDR) failed");
 	if (bind(my_serv_sock, (struct sockaddr*) my_serv_addr,
 			sizeof(*my_serv_addr)) == -1)
 		error_handling("bind() error");
 	if (listen(my_serv_sock, 5) == -1)
 		error_handling("listen() error");
-	cout << "My Server Opened in Port: " << port << endl;
 	//Add my_server socket to epoll
 	event.events = EPOLLIN;
 	event.data.fd = my_serv_sock;
@@ -100,14 +109,16 @@ int main(int argc, char *argv[]) {
 
 	while (1) {
 		char buf[BUF_SIZE];
+		int parent_sock;
 		event_cnt = epoll_wait(epfd, ep_events, EPOLL_SIZE, -1);
 		if (event_cnt == -1) {
 			puts("epoll wait() error");
 		}
 
 		for (int i = 0; i < event_cnt; i++) {
+			int clnt_sock = ep_events[i].data.fd;
 			//서버로부터 자식들에 대한 정보를 받고 연결
-			if (ep_events[i].data.fd == main_serv_sock) {
+			if (clnt_sock == main_serv_sock) {
 				int strlen = read(ep_events[i].data.fd, buf, BUF_SIZE);
 				if (strlen != 0) {
 					childsockets.clear();
@@ -115,6 +126,7 @@ int main(int argc, char *argv[]) {
 						int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 						struct sockaddr_in* child_serv_addr = returnSockAddr(
 								getChildPort(buf, idx));
+						cout << getChildPort(buf, idx) << endl;
 						event.events = EPOLLIN;
 						event.data.fd = child_serv_sock;
 						epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
@@ -122,44 +134,56 @@ int main(int argc, char *argv[]) {
 						if (connect(child_serv_sock,
 								(struct sockaddr*) child_serv_addr,
 								sizeof(*child_serv_addr)) == -1)
-						error_handling("connect() error!");
-
+							error_handling("connect() error!");
 						childsockets.push_back(child_serv_sock);
 					}
-					//printf("received msg = %s\n", buf); //MY CHILDS PORT AND ADDRESS WILL COME HERE
 				} else
 					break;
 			}
 			//Parent가 생기고 연결되면 실행됨
-			else if (ep_events[i].data.fd == my_serv_sock) {
-
+			else if (clnt_sock == my_serv_sock) {
 
 				int strlen = read(ep_events[i].data.fd, buf, BUF_SIZE);
 				struct sockaddr_in clnt_addr;
-				int clnt_sock = accept(my_serv_sock,
+				parent_sock = accept(my_serv_sock,
 						(struct sockaddr*) &clnt_addr, &addr_size);
 				event.events = EPOLLIN;
-				event.data.fd = clnt_sock;
-				epoll_ctl(epfd, EPOLL_CTL_ADD, clnt_sock, &event);
-				cout <<"connected client : " << clnt_sock <<  endl;
+				event.data.fd = parent_sock;
+				epoll_ctl(epfd, EPOLL_CTL_ADD, parent_sock, &event);
+				cout << "Parent Connected : " << parent_sock << endl;
 			}
 			//Parent로부터 메세지가 날라오면 오는 공간
-			else {
-				int clnt_sock = ep_events[i].data.fd;
-				int strlen = read(clnt_sock, buf, BUF_SIZE);
-				if(strlen != 0){
-					cout << "Message Received " << endl;
-					for(int idx = 0; idx < childsockets.size(); idx++){
-						write(childsockets.at(idx), buf, BUF_SIZE);
+			else if (clnt_sock == parent_sock) {
+				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
+				if (read_cnt > 0) {
+					cout << "RECEIVING DATA..." << endl;
+					while (1) {
+						cout << filebuf;
+						fwrite((void*) filebuf, 1, read_cnt, fp);
+						if (read_cnt != FILE_BUF_SIZE)
+							break;
+						read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
+					}
+					cout << endl;
+					cout << "RECEIVED DATA!" << endl;
+					fclose(fp);
+					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
+					//SEND TO CHILDS
+					for (int idx = 0; idx < childsockets.size(); idx++) {
+						sendToSub(childsockets.at(idx));
 					}
 				}
-				//부모가 사라짐
-				else{
-					epoll_ctl(epfd, EPOLL_CTL_DEL, clnt_sock, NULL);
-					cout <<"disconnected client : " << clnt_sock <<  endl;
+				else {
+					cout << "parent disconnected " << endl;
+					epoll_ctl(epfd, EPOLL_CTL_DEL, parent_sock, &event);
+					close(parent_sock);
 				}
-				//Check whether it is close Connection;
-				//If it is, Close the Socket
+			}
+			//FROM CHILD
+			else { // from child
+
+				//read(childsockets.at(0), buf, BUF_SIZE);
+				//printf("Message from client: %s \n", buf);
 			}
 		}
 	}
@@ -167,7 +191,24 @@ int main(int argc, char *argv[]) {
 	close(my_serv_sock);
 	return 0;
 }
+void sendToSub(int sock_fd) {
 
+	FILE * fp;
+	char buf[BUF_SIZE];
+	char filebuf[FILE_BUF_SIZE];
+	int read_cnt;
+	fp = fopen("receive.txt", "rb");
+	while (1) {
+		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
+		if (read_cnt < FILE_BUF_SIZE) {
+			filebuf[read_cnt] = EOF;
+			write(sock_fd, filebuf, read_cnt);
+			break;
+		}
+		write(sock_fd, filebuf, FILE_BUF_SIZE);
+	}
+	fclose(fp);
+}
 
 struct sockaddr_in* returnSockAddr(int port) {
 	struct sockaddr_in* sockaddr = (struct sockaddr_in*) malloc(

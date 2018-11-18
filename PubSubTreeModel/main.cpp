@@ -15,6 +15,7 @@
 #include <sys/epoll.h>
 #include <netinet/in.h>
 
+#include <algorithm>
 #include "json/json.h"
 #include <string>
 #include <string.h>
@@ -28,11 +29,12 @@ bool isDependent(Subscriber *child, Subscriber *parent);
 bool insertSubscriber(Subscriber *child, Subscriber *parent);
 void printTree(Subscriber* sub);
 void updateTree(Subscriber* child);
-bool contains(string subscription_child, string subscription_parent);
-string returnAttr(string buf);
+bool isSubset(vector<string> child, vector<string> parent);
+vector<string> returnAttr(string buf);
 string returnPort(int port);
 string returnType(string buf);
 void sendInfo(Subscriber* sub);
+int returnPort(string buf);
 void sendToAllChild(Subscriber* sub);
 void sendRootInfo(int sock_fd);
 /******************/
@@ -61,6 +63,11 @@ int main(int argc, char *argv[]) {
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serv_addr.sin_port = htons(atoi(argv[1]));
+
+	int enable = 1;
+	if (setsockopt(serv_sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int))
+			< 0)
+		error_handling("setsockopt(SO_REUSEADDR) failed");
 
 	if (bind(serv_sock, (struct sockaddr*) &serv_addr, sizeof(serv_addr)) == -1)
 		error_handling("bind() error");
@@ -112,16 +119,10 @@ int main(int argc, char *argv[]) {
 					if (returnType(buf).compare("sub") == 0) {
 						// IF NEW SUBSCRIBER ADDED
 						Subscriber* sub = new Subscriber();
-						sub->setPort(port);
+						sub->setPort(returnPort(buf));
 						sub->setSock_fd(clnt_sock);
 						sub->setSubscription(returnAttr(buf));
 						//Send Back to Subscriber;
-						string str_port = returnPort(port);
-						char *char_port = new char[str_port.length() + 1];
-						strcpy(char_port, str_port.c_str());
-						write(clnt_sock, char_port, BUF_SIZE);
-						delete[] char_port;
-						port++;
 						updateTree(sub);
 						for (int idx = 0; idx < vector_root.size(); idx++) {
 							printTree(vector_root.at(idx));
@@ -142,8 +143,10 @@ int main(int argc, char *argv[]) {
 }
 
 void printTree(Subscriber* sub) {
-	cout << "Port: " << sub->getPort() << ", Subscription: "
-			<< sub->getSubscription() << " " << sub->getChanged() << "-->";
+	cout << "Port: " << sub->getPort() << ", Subscription: ";
+	for (int idx = 0; idx < sub->getSubscription().size(); idx++)
+		cout << sub->getSubscription().at(idx) << " , ";
+	cout << "-->";
 	for (int i = 0; i < sub->getNumOfChilds(); i++) {
 		printTree(sub->getChild(i));
 	}
@@ -151,13 +154,17 @@ void printTree(Subscriber* sub) {
 }
 
 //return json to string
-string returnAttr(string buf) {
+vector<string> returnAttr(string buf) {
+	vector<string> subscriptionVector;
 	Json::Value attrbuf;
-	Json::Value attr;
+	Json::Value attrarr;
 	Json::Reader reader;
 	reader.parse(buf, attrbuf);
-	attr = attrbuf["attr"];
-	return attr.asString();
+	attrarr = attrbuf["attr"];
+	for (int idx = 0; idx < attrarr.size(); idx++) {
+		subscriptionVector.push_back(attrarr[idx].asString());
+	}
+	return subscriptionVector;
 }
 
 //return port to Json
@@ -167,6 +174,14 @@ string returnPort(int port) {
 	portbuf["port"] = port;
 	string ret = writer.write(portbuf);
 	return ret;
+}
+int returnPort(string buf) {
+	Json::Value portbuf;
+	Json::Value port;
+	Json::Reader reader;
+	reader.parse(buf, portbuf);
+	port = portbuf["port"];
+	return port.asInt();
 }
 
 //return json to string
@@ -232,28 +247,15 @@ bool insertSubscriber(Subscriber *child, Subscriber *parent) {
 }
 //Subscription이 종속관계에 있는지 파악
 bool isDependent(Subscriber *child, Subscriber *parent) {
-	return contains(child->getSubscription(), parent->getSubscription());
+	return isSubset(child->getSubscription(), parent->getSubscription());
 }
 
-//TODO
-bool contains(string subscription_child, string subscription_parent) {
+bool isSubset(vector<string> childv, vector<string> parentv) {
 
-	if (subscription_child.length() < subscription_parent.length())
-		return true;
-	else
-		return false;
-
-}
-
-bool isSubset(string child, string parent) {
-	Json::Value childarray, parentarray;
-	Json::Reader reader;;
-	reader.parse(child, childarray);
-	reader.parse(parent, parentarray);
-
-	for (int cdx = 0; cdx < childarray.size(); cdx++) {
-		for (int pdx = 0; pdx < parentarray.size(); pdx++) {
-			parentarray[pdx].compare(childarray[cdx]);
+	for (int cdx = 0; cdx < childv.size(); cdx++) {
+		if (find(parentv.begin(), parentv.end(), childv.at(cdx))
+				== parentv.end()) {
+			return false;
 		}
 	}
 	return true;

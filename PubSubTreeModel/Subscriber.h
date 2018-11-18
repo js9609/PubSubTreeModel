@@ -8,9 +8,10 @@
 #ifndef SUBSCRIBER_H_
 #define SUBSCRIBER_H_
 #define CHILD_N 3
-
+#include "json/json.h"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Subscriber
@@ -21,13 +22,13 @@ class Subscriber
                 int remain_child = CHILD_N;
                 int port = -1;
                 string ipaddr = "";
-                string subscription = "";
+                vector<string> subscription;
                 // 보류
                 bool changed = false; // 추후 Child가 변경 될 시 표시함 --> 변경 알리고 난 후 다시  False 로 처리
 
         public:
                 Subscriber();
-                Subscriber(string ipaddr, int port, string subscription);
+                Subscriber(string ipaddr, int port, vector<string> subscription);
                 ~Subscriber();
 
                 bool addChild(Subscriber *child);
@@ -38,7 +39,7 @@ class Subscriber
                 int getPort();
                 int getNumOfChilds();
                 string getIpaddr();
-                string getSubscription();
+                vector<string> getSubscription();
                 bool getChanged();
 
                 Subscriber* getChild(int pos);
@@ -47,7 +48,7 @@ class Subscriber
                 void setSock_fd(int sock_fd);
                 void setIpaddr(string ipaddr);
                 void setPort(int port);
-                void setSubscription(string subscription);
+                void setSubscription(vector<string> subscription);
 
                 void toggleChanged(bool toggle);
                 bool hasChild();

@@ -30,24 +30,26 @@ using namespace std;
 int getChildPort(string buf, int pos);
 void error_handling(string msg);
 int getChildNum(string buf);
+void sendToSub(int sock_fd);
+void sendToRoots(char *buf);
 struct sockaddr_in* returnSockAddr(int port);
 //전역변수 정의
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
-
+#define FILE_BUF_SIZE 30
 vector<int> sub_roots;
+
+//EPOLL 전역변수
+struct epoll_event *ep_events;
+struct epoll_event event;
+int epfd, event_cnt;
 
 int main(int argc, char *argv[]) {
 
 	vector<int> childsockets;
-
 	Json::Value info;
 	info["type"] = "pub";
 	Json::FastWriter writer;
-
-	struct epoll_event *ep_events;
-	struct epoll_event event;
-	int epfd, event_cnt;
 
 	string pubinfo = writer.write(info);
 	cout << pubinfo << endl;
@@ -92,33 +94,67 @@ int main(int argc, char *argv[]) {
 		}
 
 		for (int i = 0; i < event_cnt; i++) {
+			int clnt_sock = ep_events[i].data.fd;
 			//서버로부터 자식들에 대한 정보를 받고 연결
-			if (ep_events[i].data.fd == main_serv_sock) {
+			if (clnt_sock == main_serv_sock) {
 				char buf[BUF_SIZE];
 				int strlen = read(main_serv_sock, buf, BUF_SIZE);
-				sub_roots.clear();
-				for (int idx = 0; idx < getChildNum(buf); idx++) {
-
-					int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
-					struct sockaddr_in* child_serv_addr = returnSockAddr(
-							getChildPort(buf, idx));
-					event.events = EPOLLIN;
-					event.data.fd = child_serv_sock;
-					epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
-					//Connect to child Server
-					if (connect(child_serv_sock,
-							(struct sockaddr*) child_serv_addr,
-							sizeof(*child_serv_addr)) == -1)
-						error_handling("connect() error!");
-					sub_roots.push_back(child_serv_sock);
-				}//FOR서
-				//일단은 이 부분에서 큰 크기의 파일을 전송해보도록 하자 JSON 형식으로 attr 추가해서
-			}//IF SERV
-		}//FOR
-	}//WHILE
+				sendToRoots(buf);
+			}				//IF SERV
+			else		//ep_events[i].data.fd == Root Subscriber //DISCONNECT
+			{
+				//close(clnt_sock);
+				//epoll_ctl(epfd, EPOLL_CTL_DEL, clnt_sock, &event);
+				//close(main_serv_sock);
+				//	return 0;
+			}
+		}				//FOR
+	}				//WHILE
 
 	close(main_serv_sock);
 	return 0;
+}
+void sendToRoots(char *buf) {
+	sub_roots.clear();
+	int size = getChildNum(buf);
+	for (int idx = 0; idx < size; idx++) {
+
+		int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+		struct sockaddr_in* child_serv_addr = returnSockAddr(
+				getChildPort(buf, idx));
+		event.events = EPOLLIN;
+		event.data.fd = child_serv_sock;
+		epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
+		//Connect to child Server
+		if (connect(child_serv_sock, (struct sockaddr*) child_serv_addr,
+				sizeof(*child_serv_addr)) == -1)
+			error_handling("connect() error!");
+		sub_roots.push_back(child_serv_sock);
+	}
+	for (int idx = 0; idx < size; idx++)
+		sendToSub(sub_roots.at(idx));
+
+}
+
+void sendToSub(int sock_fd) {
+
+	FILE * fp;
+	char buf[BUF_SIZE];
+	char filebuf[FILE_BUF_SIZE];
+	int read_cnt;
+	fp = fopen("content.c", "rb");
+	while (1) {
+		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
+		if (read_cnt < FILE_BUF_SIZE) {
+			filebuf[read_cnt] = EOF;
+			cout << filebuf;
+			write(sock_fd, filebuf, read_cnt);
+			break;
+		}
+		cout << filebuf;
+		write(sock_fd, filebuf, FILE_BUF_SIZE);
+	}
+	fclose(fp);
 }
 
 struct sockaddr_in* returnSockAddr(int port) {
@@ -150,6 +186,4 @@ void error_handling(string msg) {
 	cout << msg << endl;
 	exit(1);
 }
-
-
 

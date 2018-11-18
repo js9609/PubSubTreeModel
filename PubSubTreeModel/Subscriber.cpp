@@ -5,6 +5,7 @@
  *      Author: jinbro
  */
 
+#include "json/json.h"
 #include <iostream>
 #include <string>
 #include "Subscriber.h"
@@ -12,7 +13,7 @@ using namespace std;
 
 Subscriber::Subscriber() {
 }
-Subscriber::Subscriber(string ipaddr, int port, string subscription) {
+Subscriber::Subscriber(string ipaddr, int port, vector<string> subscription) {
 	this->ipaddr = ipaddr;
 	this->port = port;
 	this->subscription = subscription;
@@ -47,7 +48,7 @@ int Subscriber::getPort() {
 string Subscriber::getIpaddr() {
 	return ipaddr;
 }
-string Subscriber::getSubscription() {
+vector<string> Subscriber::getSubscription() {
 	return subscription;
 }
 int Subscriber::getNumOfChilds(){
@@ -70,7 +71,7 @@ void Subscriber::setIpaddr(string ipaddr) {
 void Subscriber::setPort(int port) {
 	this->port = port;
 }
-void Subscriber::setSubscription(string subscription) {
+void Subscriber::setSubscription(vector<string> subscription) {
 	this->subscription = subscription;
 }
 
