@@ -90,7 +90,6 @@ int main(int argc, char *argv[]) {
 			sizeof(*main_serv_addr)) == -1)
 		error_handling("connect() error!");
 	str_len = write(main_serv_sock, buf, BUF_SIZE);
-	fp = fopen("receive.txt", "w");
 	my_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 	my_serv_addr = returnSockAddr(atoi(argv[3]));
 	int enable = 1;
@@ -154,26 +153,35 @@ int main(int argc, char *argv[]) {
 			}
 			//Parent로부터 메세지가 날라오면 오는 공간
 			else if (clnt_sock == parent_sock) {
+				memset(filebuf, 0, FILE_BUF_SIZE);
 				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 				if (read_cnt > 0) {
+					fp = fopen("receive.txt", "wb");
 					cout << "RECEIVING DATA..." << endl;
 					while (1) {
+						if (read_cnt != FILE_BUF_SIZE) {
+							filebuf[read_cnt] = 0;
+							cout << filebuf;
+							fwrite((void*) filebuf, 1, read_cnt, fp);
+							break;
+						}
 						cout << filebuf;
 						fwrite((void*) filebuf, 1, read_cnt, fp);
-						if (read_cnt != FILE_BUF_SIZE)
-							break;
 						read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 					}
 					cout << endl;
 					cout << "RECEIVED DATA!" << endl;
-					fclose(fp);
+					//TO ensure that file closed properly
+					while(1){
+						if(fclose(fp)==0)
+							break;
+					}
 					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
 					//SEND TO CHILDS
 					for (int idx = 0; idx < childsockets.size(); idx++) {
 						sendToSub(childsockets.at(idx));
 					}
-				}
-				else {
+				} else {
 					cout << "parent disconnected " << endl;
 					epoll_ctl(epfd, EPOLL_CTL_DEL, parent_sock, &event);
 					close(parent_sock);

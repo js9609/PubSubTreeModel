@@ -1,0 +1,20 @@
+/*
+ * TEST.cpp
+ *
+ *  Created on: Nov 18, 2018
+ *      Author: jinbro
+ */
+
+#include <iostream>
+#include "json/json.h"
+#include <string>
+#include <fstream>
+
+int main() {
+
+	Json::Value root;
+	Json::Reader reader;
+	const Json::Value defValu
+
+
+}

@@ -1,0 +1,27 @@
+/*
+ * TEST.cpp
+ *
+ *  Created on: Nov 18, 2018
+ *      Author: jinbro
+ */
+
+#include <iostream>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <sys/epoll.h>
+#include <netinet/in.h>
+#include "json/json.h"
+#include <string>
+#include <fstream>
+
+int main() {
+
+	Json::Value root;
+	Json::Reader reader;
+	const Json::Value defValu
+
+
+}

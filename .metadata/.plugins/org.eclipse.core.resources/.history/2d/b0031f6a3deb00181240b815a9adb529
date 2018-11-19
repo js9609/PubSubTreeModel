@@ -1,0 +1,22 @@
+/*
+ * TEST.cpp
+ *
+ *  Created on: Nov 18, 2018
+ *      Author: jinbro
+ */
+
+#include <iostream>
+#include "json/json.h"
+#include <string>
+#include <fstream>
+using namespace std;
+int main() {
+
+	Json::Value root;
+	Json::Reader reader;
+
+
+
+
+
+}

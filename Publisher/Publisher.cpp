@@ -30,7 +30,7 @@ using namespace std;
 int getChildPort(string buf, int pos);
 void error_handling(string msg);
 int getChildNum(string buf);
-void sendToSub(int sock_fd);
+//void sendToSub(int sock_fd);
 void sendToRoots(char *buf);
 struct sockaddr_in* returnSockAddr(int port);
 //전역변수 정의
@@ -103,10 +103,11 @@ int main(int argc, char *argv[]) {
 			}				//IF SERV
 			else		//ep_events[i].data.fd == Root Subscriber //DISCONNECT
 			{
-				//close(clnt_sock);
-				//epoll_ctl(epfd, EPOLL_CTL_DEL, clnt_sock, &event);
-				//close(main_serv_sock);
-				//	return 0;
+				/*
+				cout << "CLIENT DISCONNECTED" << endl;
+				close(clnt_sock);
+				epoll_ctl(epfd, EPOLL_CTL_DEL, clnt_sock, &event);
+				*/
 			}
 		}				//FOR
 	}				//WHILE
@@ -131,16 +132,33 @@ void sendToRoots(char *buf) {
 			error_handling("connect() error!");
 		sub_roots.push_back(child_serv_sock);
 	}
-	for (int idx = 0; idx < size; idx++)
-		sendToSub(sub_roots.at(idx));
-
+	for (int idx = 0; idx < size; idx++){
+		FILE * fp;
+			char filebuf[FILE_BUF_SIZE];
+			memset(filebuf, 0 , FILE_BUF_SIZE);
+			int read_cnt;
+			fp = fopen("content.c", "rb");
+			cout << "SENT MESSAGE " << endl;
+			while (1) {
+				read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
+				if (read_cnt < FILE_BUF_SIZE) {
+					filebuf[read_cnt] = 0;
+					cout << filebuf;
+					write(sub_roots.at(idx), filebuf, read_cnt);
+					break;
+				}
+				cout << filebuf;
+				write(sub_roots.at(idx), filebuf, FILE_BUF_SIZE);
+			}
+			fclose(fp);
+	}//sendToSub(sub_roots.at(idx));
+	return;
 }
-
+/*
 void sendToSub(int sock_fd) {
-
 	FILE * fp;
-	char buf[BUF_SIZE];
 	char filebuf[FILE_BUF_SIZE];
+	memset(filebuf, 0 , BUF_SIZE);
 	int read_cnt;
 	fp = fopen("content.c", "rb");
 	while (1) {
@@ -156,7 +174,7 @@ void sendToSub(int sock_fd) {
 	}
 	fclose(fp);
 }
-
+*/
 struct sockaddr_in* returnSockAddr(int port) {
 	struct sockaddr_in* sockaddr = (struct sockaddr_in*) malloc(
 			sizeof(sockaddr_in));
