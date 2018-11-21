@@ -37,7 +37,7 @@ struct sockaddr_in* returnSockAddr(int port);
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
 #define FILE_BUF_SIZE 30
-#define MESSAGE_CNT 10
+#define MESSAGE_CNT 1
 vector<int> sub_roots;
 
 //EPOLL 전역변수
@@ -102,15 +102,15 @@ int main(int argc, char *argv[]) {
 				int strlen = read(main_serv_sock, buf, BUF_SIZE);
 				sendToRoots(buf);
 				close(main_serv_sock);
-					return 0;
+				return 0;
 			}				//IF SERV
 			else		//ep_events[i].data.fd == Root Subscriber //DISCONNECT
 			{
 				/*
-				cout << "CLIENT DISCONNECTED" << endl;
-				close(clnt_sock);
-				epoll_ctl(epfd, EPOLL_CTL_DEL, clnt_sock, &event);
-				*/
+				 cout << "CLIENT DISCONNECTED" << endl;
+				 close(clnt_sock);
+				 epoll_ctl(epfd, EPOLL_CTL_DEL, clnt_sock, &event);
+				 */
 			}
 		}				//FOR
 	}				//WHILE
@@ -135,11 +135,11 @@ void sendToRoots(char *buf) {
 			error_handling("connect() error!");
 		sub_roots.push_back(child_serv_sock);
 	}
-	for(int i =0; i< MESSAGE_CNT; i++)
-	for (int idx = 0; idx < size; idx++){
-		FILE * fp;
+	for (int i = 0; i < MESSAGE_CNT; i++) {
+		for (int idx = 0; idx < size; idx++) {
+			FILE * fp;
 			char filebuf[FILE_BUF_SIZE];
-			memset(filebuf, 0 , FILE_BUF_SIZE);
+			memset(filebuf, 0, FILE_BUF_SIZE);
 			int read_cnt;
 			fp = fopen("content.json", "rb");
 			cout << "SENT MESSAGE " << endl;
@@ -155,30 +155,32 @@ void sendToRoots(char *buf) {
 				write(sub_roots.at(idx), filebuf, FILE_BUF_SIZE);
 			}
 			fclose(fp);
-	}//sendToSub(sub_roots.at(idx));
+		}
+		sleep(1);
+	}
 	return;
 }
 /*
-void sendToSub(int sock_fd) {
-	FILE * fp;
-	char filebuf[FILE_BUF_SIZE];
-	memset(filebuf, 0 , BUF_SIZE);
-	int read_cnt;
-	fp = fopen("content.c", "rb");
-	while (1) {
-		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
-		if (read_cnt < FILE_BUF_SIZE) {
-			filebuf[read_cnt] = EOF;
-			cout << filebuf;
-			write(sock_fd, filebuf, read_cnt);
-			break;
-		}
-		cout << filebuf;
-		write(sock_fd, filebuf, FILE_BUF_SIZE);
-	}
-	fclose(fp);
-}
-*/
+ void sendToSub(int sock_fd) {
+ FILE * fp;
+ char filebuf[FILE_BUF_SIZE];
+ memset(filebuf, 0 , BUF_SIZE);
+ int read_cnt;
+ fp = fopen("content.c", "rb");
+ while (1) {
+ read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
+ if (read_cnt < FILE_BUF_SIZE) {
+ filebuf[read_cnt] = EOF;
+ cout << filebuf;
+ write(sock_fd, filebuf, read_cnt);
+ break;
+ }
+ cout << filebuf;
+ write(sock_fd, filebuf, FILE_BUF_SIZE);
+ }
+ fclose(fp);
+ }
+ */
 struct sockaddr_in* returnSockAddr(int port) {
 	struct sockaddr_in* sockaddr = (struct sockaddr_in*) malloc(
 			sizeof(sockaddr_in));

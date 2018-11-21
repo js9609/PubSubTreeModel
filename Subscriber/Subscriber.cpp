@@ -167,11 +167,11 @@ int main(int argc, char *argv[]) {
 					while (1) {
 						if (read_cnt != FILE_BUF_SIZE) {
 							filebuf[read_cnt] = 0;
-							cout << filebuf;
+							//cout << filebuf;
 							fwrite((void*) filebuf, 1, read_cnt, fp);
 							break;
 						}
-						cout << filebuf;
+						//cout << filebuf;
 						fwrite((void*) filebuf, 1, read_cnt, fp);
 						read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 					}
@@ -184,7 +184,6 @@ int main(int argc, char *argv[]) {
 					}
 
 					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
-					//SEND TO CHILDS
 					if (filterFile(myInfo, my_attribute)) {
 						for (int idx = 0; idx < childsockets.size(); idx++) {
 							sendToSub(myInfo,childsockets.at(idx));
@@ -220,7 +219,6 @@ bool filterFile(const char* filename, vector<string> my_attribute) {
 	reader.parse(file, attrbuf);
 	attrarr = attrbuf["attr"];
 	file.close();
-	cout << attrarr;
 	for (int idx = 0; idx < attrarr.size(); idx++) {
 		file_attribute.push_back(attrarr[idx].asString());
 	}
@@ -242,12 +240,13 @@ void sendToSub(const char* filename,int sock_fd) {
 	FILE * fp;
 	char buf[BUF_SIZE];
 	char filebuf[FILE_BUF_SIZE];
+	memset(filebuf, 0, FILE_BUF_SIZE);
 	int read_cnt;
 	fp = fopen(filename, "rb");
 	while (1) {
 		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
 		if (read_cnt < FILE_BUF_SIZE) {
-			filebuf[read_cnt] = EOF;
+			filebuf[read_cnt] = 0;
 			write(sock_fd, filebuf, read_cnt);
 			break;
 		}

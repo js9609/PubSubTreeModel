@@ -273,6 +273,7 @@ void sendToAllChild(Subscriber* sub) {
 	}
 }
 
+//특정 Subscriber 자식들에게
 void sendInfo(Subscriber* sub) {
 	Json::Value childs;
 	Json::FastWriter writer;
