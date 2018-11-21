@@ -252,9 +252,9 @@ bool isDependent(Subscriber *child, Subscriber *parent) {
 
 bool isSubset(vector<string> childv, vector<string> parentv) {
 
-	for (int cdx = 0; cdx < childv.size(); cdx++) {
-		if (find(parentv.begin(), parentv.end(), childv.at(cdx))
-				== parentv.end()) {
+	for (int pdx = 0; pdx < parentv.size(); pdx++) {
+		if (find(childv.begin(), childv.end(), parentv.at(pdx))
+				== childv.end()) {
 			return false;
 		}
 	}
@@ -299,7 +299,6 @@ void sendRootInfo(int sock_fd) {
 	const char*buf = str.c_str();
 	write(sock_fd, buf, BUF_SIZE);
 	return;
-
 }
 //안쓸거 같은것둘
 

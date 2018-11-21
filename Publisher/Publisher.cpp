@@ -37,6 +37,7 @@ struct sockaddr_in* returnSockAddr(int port);
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
 #define FILE_BUF_SIZE 30
+#define MESSAGE_CNT 10
 vector<int> sub_roots;
 
 //EPOLL 전역변수
@@ -100,6 +101,8 @@ int main(int argc, char *argv[]) {
 				char buf[BUF_SIZE];
 				int strlen = read(main_serv_sock, buf, BUF_SIZE);
 				sendToRoots(buf);
+				close(main_serv_sock);
+					return 0;
 			}				//IF SERV
 			else		//ep_events[i].data.fd == Root Subscriber //DISCONNECT
 			{
@@ -132,12 +135,13 @@ void sendToRoots(char *buf) {
 			error_handling("connect() error!");
 		sub_roots.push_back(child_serv_sock);
 	}
+	for(int i =0; i< MESSAGE_CNT; i++)
 	for (int idx = 0; idx < size; idx++){
 		FILE * fp;
 			char filebuf[FILE_BUF_SIZE];
 			memset(filebuf, 0 , FILE_BUF_SIZE);
 			int read_cnt;
-			fp = fopen("content.c", "rb");
+			fp = fopen("content.json", "rb");
 			cout << "SENT MESSAGE " << endl;
 			while (1) {
 				read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);

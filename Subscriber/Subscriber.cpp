@@ -5,6 +5,7 @@
  *      Author: jinbro
  */
 #include <iostream>
+#include <algorithm>
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -17,20 +18,28 @@
 #include <string.h>
 #include <vector>
 
+#include <fstream>
 using namespace std;
 
 //함수 정의
-void sendToSub(int sock_fd);
+void sendToSub(const char* filename, int sock_fd);
 int getChildPort(string buf, int pos);
 int returnPort(string buf);
 void error_handling(string msg);
 int getChildNum(string buf);
 struct sockaddr_in* returnSockAddr(int port);
+bool filterFile(const char* filename, vector<string> my_attribute);
+bool filter(vector<string> file_attribute, vector<string> my_attribute);
 //전역변수 정의
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
 #define FILE_BUF_SIZE 30
 int main(int argc, char *argv[]) {
+
+	if (argc != 4) {
+		printf("Usage : %s <IP> <port> <myPort>\n", argv[0]);
+		exit(1);
+	}
 
 	FILE *fp;
 	char filebuf[FILE_BUF_SIZE];
@@ -45,10 +54,12 @@ int main(int argc, char *argv[]) {
 	Json::Value attrarr;
 	int attrnum;
 	string atr;
+	vector<string> my_attribute;
 	cout << "HOW MANY ATTRIBUTES? : ";
 	cin >> attrnum;
 	for (int idx = 0; idx < attrnum; idx++) {
 		cin >> atr;
+		my_attribute.push_back(atr);
 		attrarr.append(atr);
 	}
 	info["attr"] = attrarr;
@@ -57,7 +68,7 @@ int main(int argc, char *argv[]) {
 	Json::FastWriter writer;
 	string attr = writer.write(info);
 	cout << attr << endl;
-	const char *buf = attr.c_str();
+	const char *myInfo = attr.c_str();
 
 	char char_port[BUF_SIZE];
 	int str_len;
@@ -67,11 +78,6 @@ int main(int argc, char *argv[]) {
 	struct sockaddr_in* my_serv_addr;
 
 	socklen_t addr_size;
-
-	if (argc != 4) {
-		printf("Usage : %s <IP> <port> <myPort>\n", argv[0]);
-		exit(1);
-	}
 
 	//Create Epoll
 	epfd = epoll_create(EPOLL_SIZE);
@@ -89,7 +95,7 @@ int main(int argc, char *argv[]) {
 	if (connect(main_serv_sock, (struct sockaddr*) main_serv_addr,
 			sizeof(*main_serv_addr)) == -1)
 		error_handling("connect() error!");
-	str_len = write(main_serv_sock, buf, BUF_SIZE);
+	str_len = write(main_serv_sock, myInfo, BUF_SIZE);
 	my_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 	my_serv_addr = returnSockAddr(atoi(argv[3]));
 	int enable = 1;
@@ -156,7 +162,7 @@ int main(int argc, char *argv[]) {
 				memset(filebuf, 0, FILE_BUF_SIZE);
 				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 				if (read_cnt > 0) {
-					fp = fopen("receive.txt", "wb");
+					fp = fopen(myInfo, "wb");
 					cout << "RECEIVING DATA..." << endl;
 					while (1) {
 						if (read_cnt != FILE_BUF_SIZE) {
@@ -172,15 +178,19 @@ int main(int argc, char *argv[]) {
 					cout << endl;
 					cout << "RECEIVED DATA!" << endl;
 					//TO ensure that file closed properly
-					while(1){
-						if(fclose(fp)==0)
+					while (1) {
+						if (fclose(fp) == 0)
 							break;
 					}
+
 					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
 					//SEND TO CHILDS
-					for (int idx = 0; idx < childsockets.size(); idx++) {
-						sendToSub(childsockets.at(idx));
+					if (filterFile(myInfo, my_attribute)) {
+						for (int idx = 0; idx < childsockets.size(); idx++) {
+							sendToSub(myInfo,childsockets.at(idx));
+						}
 					}
+
 				} else {
 					cout << "parent disconnected " << endl;
 					epoll_ctl(epfd, EPOLL_CTL_DEL, parent_sock, &event);
@@ -191,7 +201,8 @@ int main(int argc, char *argv[]) {
 			else { // from child
 
 				//read(childsockets.at(0), buf, BUF_SIZE);
-				//printf("Message from client: %s \n", buf);
+				//printf("Message from client: %s \n", myPort);
+
 			}
 		}
 	}
@@ -199,13 +210,40 @@ int main(int argc, char *argv[]) {
 	close(my_serv_sock);
 	return 0;
 }
-void sendToSub(int sock_fd) {
+bool filterFile(const char* filename, vector<string> my_attribute) {
+	vector<string> file_attribute;
+	Json::Value attrbuf;
+	Json::Value attrarr;
+	Json::Reader reader;
+
+	ifstream file(filename);
+	reader.parse(file, attrbuf);
+	attrarr = attrbuf["attr"];
+	file.close();
+	cout << attrarr;
+	for (int idx = 0; idx < attrarr.size(); idx++) {
+		file_attribute.push_back(attrarr[idx].asString());
+	}
+	return filter(file_attribute, my_attribute);
+}
+
+bool filter(vector<string> file_attribute, vector<string> my_attribute) {
+	for (int cdx = 0; cdx < my_attribute.size(); cdx++) {
+		if (find(file_attribute.begin(), file_attribute.end(),
+				my_attribute.at(cdx)) == file_attribute.end()) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void sendToSub(const char* filename,int sock_fd) {
 
 	FILE * fp;
 	char buf[BUF_SIZE];
 	char filebuf[FILE_BUF_SIZE];
 	int read_cnt;
-	fp = fopen("receive.txt", "rb");
+	fp = fopen(filename, "rb");
 	while (1) {
 		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
 		if (read_cnt < FILE_BUF_SIZE) {
