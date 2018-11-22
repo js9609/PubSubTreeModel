@@ -1,0 +1,306 @@
+/*
+ * Subscriber.cpp
+ *
+ *  Created on: Nov 14, 2018
+ *      Author: jinbro
+ */
+#include <iostream>
+#include <algorithm>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <sys/epoll.h>
+#include <netinet/in.h>
+#include "json/json.h"
+#include <string>
+#include <string.h>
+#include <vector>
+
+#include <fstream>
+using namespace std;
+
+//함수 정의
+void sendToSub(const char* filename, int sock_fd);
+int getChildPort(string buf, int pos);
+int returnPort(string buf);
+void error_handling(string msg);
+int getChildNum(string buf);
+struct sockaddr_in* returnSockAddr(int port);
+bool filterFile(const char* filename, vector<string> my_attribute);
+bool filter(vector<string> file_attribute, vector<string> my_attribute);
+//전역변수 정의
+#define EPOLL_SIZE 256
+#define BUF_SIZE 100
+#define FILE_BUF_SIZE 30
+int main(int argc, char *argv[]) {
+
+	if (argc != 4) {
+		printf("Usage : %s <IP> <port> <myPort>\n", argv[0]);
+		exit(1);
+	}
+
+	FILE *fp;
+	char filebuf[FILE_BUF_SIZE];
+	int read_cnt;
+
+	vector<int> childsockets;
+	struct epoll_event *ep_events;
+	struct epoll_event event;
+	int epfd, event_cnt;
+
+	Json::Value info;
+	Json::Value attrarr;
+	int attrnum;
+	string atr;
+	vector<string> my_attribute;
+	cout << "HOW MANY ATTRIBUTES? : ";
+	cin >> attrnum;
+	for (int idx = 0; idx < attrnum; idx++) {
+		cin >> atr;
+		my_attribute.push_back(atr);
+		attrarr.append(atr);
+	}
+	info["attr"] = attrarr;
+	info["type"] = "sub";
+	info["port"] = atoi(argv[3]);
+	Json::FastWriter writer;
+	string attr = writer.write(info);
+	cout << attr << endl;
+	const char *myInfo = attr.c_str();
+
+	char char_port[BUF_SIZE];
+	int str_len;
+	int main_serv_sock, my_serv_sock;
+
+	struct sockaddr_in* main_serv_addr;
+	struct sockaddr_in* my_serv_addr;
+
+	socklen_t addr_size;
+
+	//Create Epoll
+	epfd = epoll_create(EPOLL_SIZE);
+	ep_events = (struct epoll_event*) malloc(
+			sizeof(struct epoll_event) * EPOLL_SIZE);
+
+	//For Connection To the Main Server - Initializing
+	main_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+	main_serv_addr = returnSockAddr(atoi(argv[2]));
+	event.events = EPOLLIN;
+	event.data.fd = main_serv_sock;
+	epoll_ctl(epfd, EPOLL_CTL_ADD, main_serv_sock, &event);
+
+	//Connect to the main Server
+	if (connect(main_serv_sock, (struct sockaddr*) main_serv_addr,
+			sizeof(*main_serv_addr)) == -1)
+		error_handling("connect() error!");
+	str_len = write(main_serv_sock, myInfo, BUF_SIZE);
+	my_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+	my_serv_addr = returnSockAddr(atoi(argv[3]));
+	int enable = 1;
+	if (setsockopt(my_serv_sock, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int))
+			< 0)
+		error_handling("setsockopt(SO_REUSEADDR) failed");
+	if (bind(my_serv_sock, (struct sockaddr*) my_serv_addr,
+			sizeof(*my_serv_addr)) == -1)
+		error_handling("bind() error");
+	if (listen(my_serv_sock, 5) == -1)
+		error_handling("listen() error");
+	//Add my_server socket to epoll
+	event.events = EPOLLIN;
+	event.data.fd = my_serv_sock;
+	epoll_ctl(epfd, EPOLL_CTL_ADD, my_serv_sock, &event);
+
+	while (1) {
+		char buf[BUF_SIZE];
+		int parent_sock;
+		event_cnt = epoll_wait(epfd, ep_events, EPOLL_SIZE, -1);
+		if (event_cnt == -1) {
+			puts("epoll wait() error");
+		}
+
+		for (int i = 0; i < event_cnt; i++) {
+			int clnt_sock = ep_events[i].data.fd;
+			//서버로부터 자식들에 대한 정보를 받고 연결
+			if (clnt_sock == main_serv_sock) {
+				int strlen = read(ep_events[i].data.fd, buf, BUF_SIZE);
+				if (strlen != 0) {
+					childsockets.clear();
+					for (int idx = 0; idx < getChildNum(buf); idx++) {
+						int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
+						struct sockaddr_in* child_serv_addr = returnSockAddr(
+								getChildPort(buf, idx));
+						cout << getChildPort(buf, idx) << endl;
+						event.events = EPOLLIN;
+						event.data.fd = child_serv_sock;
+						epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
+						//Connect to child Server
+						if (connect(child_serv_sock,
+								(struct sockaddr*) child_serv_addr,
+								sizeof(*child_serv_addr)) == -1)
+							error_handling("connect() error!");
+						childsockets.push_back(child_serv_sock);
+					}
+				} else
+					break;
+			}
+			//Parent가 생기고 연결되면 실행됨
+			else if (clnt_sock == my_serv_sock) {
+
+				int strlen = read(ep_events[i].data.fd, buf, BUF_SIZE);
+				struct sockaddr_in clnt_addr;
+				parent_sock = accept(my_serv_sock,
+						(struct sockaddr*) &clnt_addr, &addr_size);
+				event.events = EPOLLIN;
+				event.data.fd = parent_sock;
+				epoll_ctl(epfd, EPOLL_CTL_ADD, parent_sock, &event);
+				cout << "Parent Connected : " << parent_sock << endl;
+			}
+			//Parent로부터 메세지가 날라오면 오는 공간
+			else if (clnt_sock == parent_sock) {
+				memset(filebuf, 0, FILE_BUF_SIZE);
+				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
+				if (read_cnt > 0) {
+					int filesize = atoi(filebuf);
+					cout << filesize << endl;
+					fp = fopen(myInfo, "wb");
+					cout << "RECEIVING DATA..." << endl;
+//					while (1) {
+//						if (read_cnt != FILE_BUF_SIZE) {
+//							filebuf[read_cnt] = 0;
+//							//cout << filebuf;
+//							fwrite((void*) filebuf, 1, read_cnt, fp);
+//							break;
+//						}
+//						//cout << filebuf;
+//						fwrite((void*) filebuf, 1, read_cnt, fp);
+//						read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
+//					}
+					while(filesize > FILE_BUF_SIZE){
+						read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
+						fwrite((void*) filebuf, 1, read_cnt, fp);
+						filesize -= FILE_BUF_SIZE;
+					}
+
+					cout << endl;
+					cout << "RECEIVED DATA!" << endl;
+					//TO ensure that file closed properly
+					while (1) {
+						if (fclose(fp) == 0)
+							break;
+					}
+
+					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
+					if (filterFile(myInfo, my_attribute)) {
+						for (int idx = 0; idx < childsockets.size(); idx++) {
+							sendToSub(myInfo,childsockets.at(idx));
+						}
+					}
+
+				} else {
+					cout << "parent disconnected " << endl;
+					epoll_ctl(epfd, EPOLL_CTL_DEL, parent_sock, &event);
+					close(parent_sock);
+				}
+			}
+			//FROM CHILD
+			else { // from child
+
+				//read(childsockets.at(0), buf, BUF_SIZE);
+				//printf("Message from client: %s \n", myPort);
+
+			}
+		}
+	}
+	close(main_serv_sock);
+	close(my_serv_sock);
+	return 0;
+}
+bool filterFile(const char* filename, vector<string> my_attribute) {
+	vector<string> file_attribute;
+	Json::Value attrbuf;
+	Json::Value attrarr;
+	Json::Reader reader;
+
+	ifstream file(filename);
+	reader.parse(file, attrbuf);
+	attrarr = attrbuf["attr"];
+	file.close();
+	for (int idx = 0; idx < attrarr.size(); idx++) {
+		file_attribute.push_back(attrarr[idx].asString());
+	}
+	return filter(file_attribute, my_attribute);
+}
+
+bool filter(vector<string> file_attribute, vector<string> my_attribute) {
+	for (int cdx = 0; cdx < my_attribute.size(); cdx++) {
+		if (find(file_attribute.begin(), file_attribute.end(),
+				my_attribute.at(cdx)) == file_attribute.end()) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void sendToSub(const char* filename,int sock_fd) {
+
+	FILE * fp;
+	char buf[BUF_SIZE];
+	char filebuf[FILE_BUF_SIZE];
+	memset(filebuf, 0, FILE_BUF_SIZE);
+	int read_cnt;
+	fp = fopen(filename, "rb");
+	while (1) {
+		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
+		if (read_cnt < FILE_BUF_SIZE) {
+			filebuf[read_cnt] = 0;
+			write(sock_fd, filebuf, read_cnt);
+			break;
+		}
+		write(sock_fd, filebuf, FILE_BUF_SIZE);
+	}
+	fclose(fp);
+}
+
+struct sockaddr_in* returnSockAddr(int port) {
+	struct sockaddr_in* sockaddr = (struct sockaddr_in*) malloc(
+			sizeof(sockaddr_in));
+	memset(sockaddr, 0, sizeof(*sockaddr));
+	sockaddr->sin_family = AF_INET;
+	sockaddr->sin_addr.s_addr = htonl(INADDR_ANY);
+	sockaddr->sin_port = htons(port);
+	return sockaddr;
+}
+
+void returnChildInfo(string buf) {
+
+}
+int returnPort(string buf) {
+	Json::Value attrbuf;
+	Json::Value attr;
+	Json::Reader reader;
+	reader.parse(buf, attrbuf);
+	attr = attrbuf["port"];
+	return attr.asInt();
+}
+int getChildPort(string buf, int pos) {
+	Json::Value array;
+	Json::Value port;
+	Json::Reader reader;
+	reader.parse(buf, array);
+	port = array[pos];
+	return port.asInt();
+}
+int getChildNum(string buf) {
+	Json::Value array;
+	Json::Reader reader;
+	reader.parse(buf, array);
+	return array.size();
+}
+
+void error_handling(string msg) {
+	cout << msg << endl;
+	exit(1);
+}
+

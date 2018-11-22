@@ -37,7 +37,7 @@ struct sockaddr_in* returnSockAddr(int port);
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
 #define FILE_BUF_SIZE 30
-#define MESSAGE_CNT 1
+#define MESSAGE_CNT 10
 vector<int> sub_roots;
 
 //EPOLL 전역변수
@@ -137,26 +137,41 @@ void sendToRoots(char *buf) {
 	}
 	for (int i = 0; i < MESSAGE_CNT; i++) {
 		for (int idx = 0; idx < size; idx++) {
+			int cnt = 0;
 			FILE * fp;
+			int filesize;
 			char filebuf[FILE_BUF_SIZE];
 			memset(filebuf, 0, FILE_BUF_SIZE);
 			int read_cnt;
 			fp = fopen("content.json", "rb");
-			cout << "SENT MESSAGE " << endl;
+			//TO CHECK THE SIZE OF FILE
+			fseek(fp, 0, SEEK_END);
+			filesize = ftell(fp);
+			rewind(fp);
+			//
+			string fs = to_string(filesize);
+			const char *charFileSize = fs.c_str();
+			cout << "FILE SIZE : " << charFileSize << endl;
+			cout << "SENDING MESSAGE " << endl;
+			write(sub_roots.at(idx), charFileSize, FILE_BUF_SIZE);
 			while (1) {
 				read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
 				if (read_cnt < FILE_BUF_SIZE) {
 					filebuf[read_cnt] = 0;
-					cout << filebuf;
+					//cout << filebuf;
 					write(sub_roots.at(idx), filebuf, read_cnt);
+					cnt +=read_cnt;
 					break;
 				}
-				cout << filebuf;
+				//cout << filebuf;
 				write(sub_roots.at(idx), filebuf, FILE_BUF_SIZE);
+				cnt += FILE_BUF_SIZE;
 			}
+			cout << "SIZE:" << cnt << endl;
 			fclose(fp);
 		}
-		sleep(1);
+		cout << "SENT MESSAGE" << endl;
+//		sleep(1);
 	}
 	return;
 }

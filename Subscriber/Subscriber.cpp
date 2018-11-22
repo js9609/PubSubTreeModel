@@ -162,19 +162,24 @@ int main(int argc, char *argv[]) {
 				memset(filebuf, 0, FILE_BUF_SIZE);
 				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 				if (read_cnt > 0) {
+					int filesize = atoi(filebuf);
+					cout << filesize << endl;
 					fp = fopen(myInfo, "wb");
 					cout << "RECEIVING DATA..." << endl;
 					while (1) {
-						if (read_cnt != FILE_BUF_SIZE) {
-							filebuf[read_cnt] = 0;
-							//cout << filebuf;
+						if (filesize > FILE_BUF_SIZE) {
+							read_cnt = read(parent_sock, filebuf,
+							FILE_BUF_SIZE);
+							fwrite((void*) filebuf, 1, read_cnt, fp);
+							filesize -= FILE_BUF_SIZE;
+						} else {
+							cout << filesize << endl;
+							read_cnt = read(parent_sock, filebuf, filesize);
 							fwrite((void*) filebuf, 1, read_cnt, fp);
 							break;
 						}
-						//cout << filebuf;
-						fwrite((void*) filebuf, 1, read_cnt, fp);
-						read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 					}
+
 					cout << endl;
 					cout << "RECEIVED DATA!" << endl;
 					//TO ensure that file closed properly
@@ -186,7 +191,7 @@ int main(int argc, char *argv[]) {
 					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
 					if (filterFile(myInfo, my_attribute)) {
 						for (int idx = 0; idx < childsockets.size(); idx++) {
-							sendToSub(myInfo,childsockets.at(idx));
+							sendToSub(myInfo, childsockets.at(idx));
 						}
 					}
 
@@ -235,14 +240,23 @@ bool filter(vector<string> file_attribute, vector<string> my_attribute) {
 	return true;
 }
 
-void sendToSub(const char* filename,int sock_fd) {
+void sendToSub(const char* filename, int sock_fd) {
 
+	int filesize;
 	FILE * fp;
 	char buf[BUF_SIZE];
 	char filebuf[FILE_BUF_SIZE];
 	memset(filebuf, 0, FILE_BUF_SIZE);
 	int read_cnt;
 	fp = fopen(filename, "rb");
+	fseek(fp, 0, SEEK_END);
+	filesize = ftell(fp);
+	rewind(fp);
+	string fs = to_string(filesize);
+	const char *charFileSize = fs.c_str();
+	cout << "FILE SIZE : " << charFileSize << endl;
+	cout << "SENDING MESSAGE " << endl;
+	write(sock_fd, charFileSize, FILE_BUF_SIZE);
 	while (1) {
 		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
 		if (read_cnt < FILE_BUF_SIZE) {
