@@ -22,7 +22,7 @@
 using namespace std;
 
 //함수 정의
-void sendToSub(const char* filename, int sock_fd);
+void sendToSub(const char* filename, vector<int> childsockets);
 int getChildPort(string buf, int pos);
 int returnPort(string buf);
 void error_handling(string msg);
@@ -112,6 +112,7 @@ int main(int argc, char *argv[]) {
 	event.data.fd = my_serv_sock;
 	epoll_ctl(epfd, EPOLL_CTL_ADD, my_serv_sock, &event);
 
+	int file_cnt = 0;
 	while (1) {
 		char buf[BUF_SIZE];
 		int parent_sock;
@@ -163,35 +164,35 @@ int main(int argc, char *argv[]) {
 				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 				if (read_cnt > 0) {
 					int filesize = atoi(filebuf);
-					cout << filesize << endl;
-					fp = fopen(myInfo, "wb");
-					cout << "RECEIVING DATA..." << endl;
-					while (1) {
-						if (filesize > FILE_BUF_SIZE) {
-							read_cnt = read(parent_sock, filebuf,
-							FILE_BUF_SIZE);
-							fwrite((void*) filebuf, 1, read_cnt, fp);
-							filesize -= FILE_BUF_SIZE;
-						} else {
-							cout << filesize << endl;
-							read_cnt = read(parent_sock, filebuf, filesize);
-							fwrite((void*) filebuf, 1, read_cnt, fp);
-							break;
+					if (filesize > 0) {
+						cout << filesize << endl;
+						fp = fopen(myInfo, "wb");
+						cout << "RECEIVING DATA..." << endl;
+						while (1) {
+							if (filesize > FILE_BUF_SIZE) {
+								read_cnt = read(parent_sock, filebuf,
+								FILE_BUF_SIZE);
+								fwrite((void*) filebuf, 1, read_cnt, fp);
+								filesize -= FILE_BUF_SIZE;
+							} else {
+								read_cnt = read(parent_sock, filebuf, filesize);
+								fwrite((void*) filebuf, 1, read_cnt, fp);
+								file_cnt++;
+								cout << file_cnt << endl;
+								break;
+							}
 						}
-					}
 
-					cout << endl;
-					cout << "RECEIVED DATA!" << endl;
-					//TO ensure that file closed properly
-					while (1) {
-						if (fclose(fp) == 0)
-							break;
-					}
+						cout << "RECEIVED DATA!" << endl;
+						//TO ensure that file closed properly
+						while (1) {
+							if (fclose(fp) == 0)
+								break;
+						}
 
-					//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
-					if (filterFile(myInfo, my_attribute)) {
-						for (int idx = 0; idx < childsockets.size(); idx++) {
-							sendToSub(myInfo, childsockets.at(idx));
+						//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
+						if (filterFile(myInfo, my_attribute)) {
+								sendToSub(myInfo, childsockets);
 						}
 					}
 
@@ -240,7 +241,7 @@ bool filter(vector<string> file_attribute, vector<string> my_attribute) {
 	return true;
 }
 
-void sendToSub(const char* filename, int sock_fd) {
+void sendToSub(const char* filename, vector<int> childsockets) {
 
 	int filesize;
 	FILE * fp;
@@ -254,17 +255,21 @@ void sendToSub(const char* filename, int sock_fd) {
 	rewind(fp);
 	string fs = to_string(filesize);
 	const char *charFileSize = fs.c_str();
-	cout << "FILE SIZE : " << charFileSize << endl;
-	cout << "SENDING MESSAGE " << endl;
-	write(sock_fd, charFileSize, FILE_BUF_SIZE);
-	while (1) {
-		read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
-		if (read_cnt < FILE_BUF_SIZE) {
-			filebuf[read_cnt] = 0;
-			write(sock_fd, filebuf, read_cnt);
-			break;
+	for (int idx = 0; idx < childsockets.size(); idx++) {
+		int sock_fd = childsockets.at(idx);
+		cout << "FILE SIZE : " << charFileSize << endl;
+		cout << "SENDING MESSAGE " << endl;
+		write(sock_fd, charFileSize, FILE_BUF_SIZE);
+		while (1) {
+			read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);
+			if (read_cnt < FILE_BUF_SIZE) {
+				filebuf[read_cnt] = 0;
+				write(sock_fd, filebuf, read_cnt);
+				break;
+			}
+			write(sock_fd, filebuf, FILE_BUF_SIZE);
 		}
-		write(sock_fd, filebuf, FILE_BUF_SIZE);
+		rewind(fp);
 	}
 	fclose(fp);
 }
