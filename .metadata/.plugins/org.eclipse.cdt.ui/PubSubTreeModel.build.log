@@ -1,4 +1,4 @@
-13:35:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+16:04:57 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
 make all 
 Building file: ../main.cpp
 Invoking: GCC C++ Compiler
@@ -87,5 +87,5 @@ g++  -o "PubSubTreeModel"  ./Publisher.o ./Subscriber.o ./jsoncpp.o ./main.o
 Finished building target: PubSubTreeModel
  
 
-13:35:06 Build Finished. 0 errors, 14 warnings. (took 931ms)
+16:04:58 Build Finished. 0 errors, 14 warnings. (took 920ms)
 

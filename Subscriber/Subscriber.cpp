@@ -18,6 +18,8 @@
 #include <string.h>
 #include <vector>
 
+#include <sys/time.h>
+
 #include <fstream>
 using namespace std;
 
@@ -34,7 +36,9 @@ bool filter(vector<string> file_attribute, vector<string> my_attribute);
 #define EPOLL_SIZE 256
 #define BUF_SIZE 100
 #define FILE_BUF_SIZE 30
+#define NUM_OF_FILE 15
 int main(int argc, char *argv[]) {
+	struct timeval end_time;
 
 	if (argc != 4) {
 		printf("Usage : %s <IP> <port> <myPort>\n", argv[0]);
@@ -55,7 +59,7 @@ int main(int argc, char *argv[]) {
 	int attrnum;
 	string atr;
 	vector<string> my_attribute;
-	cout << "HOW MANY ATTRIBUTES? : ";
+//	cout << "HOW MANY ATTRIBUTES? : ";
 	cin >> attrnum;
 	for (int idx = 0; idx < attrnum; idx++) {
 		cin >> atr;
@@ -67,7 +71,7 @@ int main(int argc, char *argv[]) {
 	info["port"] = atoi(argv[3]);
 	Json::FastWriter writer;
 	string attr = writer.write(info);
-	cout << attr << endl;
+//	cout << attr << endl;
 	const char *myInfo = attr.c_str();
 
 	char char_port[BUF_SIZE];
@@ -132,7 +136,7 @@ int main(int argc, char *argv[]) {
 						int child_serv_sock = socket(PF_INET, SOCK_STREAM, 0);
 						struct sockaddr_in* child_serv_addr = returnSockAddr(
 								getChildPort(buf, idx));
-						cout << getChildPort(buf, idx) << endl;
+//						cout << getChildPort(buf, idx) << endl;
 						event.events = EPOLLIN;
 						event.data.fd = child_serv_sock;
 						epoll_ctl(epfd, EPOLL_CTL_ADD, child_serv_sock, &event);
@@ -156,7 +160,7 @@ int main(int argc, char *argv[]) {
 				event.events = EPOLLIN;
 				event.data.fd = parent_sock;
 				epoll_ctl(epfd, EPOLL_CTL_ADD, parent_sock, &event);
-				cout << "Parent Connected : " << parent_sock << endl;
+//				cout << "Parent Connected : " << parent_sock << endl;
 			}
 			//Parent로부터 메세지가 날라오면 오는 공간
 			else if (clnt_sock == parent_sock) {
@@ -166,9 +170,9 @@ int main(int argc, char *argv[]) {
 					int filesize = atoi(filebuf);
 					//ERROR HANDLING FOR INCOMING 0 SIZE FILE
 					if (filesize > 0) {
-						cout << filesize << endl;
+//						cout << filesize << endl;
 						fp = fopen(myInfo, "wb");
-						cout << "RECEIVING DATA..." << endl;
+//						cout << "RECEIVING DATA..." << endl;
 						while (1) {
 							if (filesize > FILE_BUF_SIZE) {
 								read_cnt = read(parent_sock, filebuf,
@@ -179,26 +183,34 @@ int main(int argc, char *argv[]) {
 								read_cnt = read(parent_sock, filebuf, filesize);
 								fwrite((void*) filebuf, 1, read_cnt, fp);
 								file_cnt++;
-								cout << file_cnt << endl;
+//								cout << file_cnt << endl;
+								//TO CHECKT THE TIME -- > TEST CODE
 								break;
 							}
 						}
 
-						cout << "RECEIVED DATA!" << endl;
+//						cout << "RECEIVED DATA!" << endl;
 						//TO ensure that file closed properly
 						while (1) {
+							if((file_cnt % NUM_OF_FILE) == 0){
+							gettimeofday(&end_time, NULL);
+							printf("time %ld.%ld\n", end_time.tv_sec,
+									end_time.tv_usec);
+							cout << endl;
+							}
 							if (fclose(fp) == 0)
 								break;
 						}
 
 						//FILTER //SAVE BASE ON OWN ATTRIBUTE FILTERS
 						if (filterFile(myInfo, my_attribute)) {
-								sendToSub(myInfo, childsockets);
+							sendToSub(myInfo, childsockets);
 						}
+
 					}
 
 				} else {
-					cout << "parent disconnected " << endl;
+//					cout << "parent disconnected " << endl;
 					epoll_ctl(epfd, EPOLL_CTL_DEL, parent_sock, &event);
 					close(parent_sock);
 				}
@@ -257,8 +269,8 @@ void sendToSub(const char* filename, vector<int> childsockets) {
 	const char *charFileSize = fs.c_str();
 	for (int idx = 0; idx < childsockets.size(); idx++) {
 		int sock_fd = childsockets.at(idx);
-		cout << "FILE SIZE : " << charFileSize << endl;
-		cout << "SENDING MESSAGE " << endl;
+//		cout << "FILE SIZE : " << charFileSize << endl;
+//		cout << "SENDING MESSAGE " << endl;
 		write(sock_fd, charFileSize, FILE_BUF_SIZE);
 		while (1) {
 			read_cnt = fread((void*) filebuf, 1, FILE_BUF_SIZE, fp);

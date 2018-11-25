@@ -23,6 +23,7 @@
 #include <string>
 #include <string.h>
 #include <vector>
+#include <sys/time.h>
 
 using namespace std;
 
@@ -46,6 +47,7 @@ struct epoll_event event;
 int epfd, event_cnt;
 
 int main(int argc, char *argv[]) {
+	struct timeval start_time, end_time;
 
 	vector<int> childsockets;
 	Json::Value info;
@@ -100,8 +102,22 @@ int main(int argc, char *argv[]) {
 			if (clnt_sock == main_serv_sock) {
 				char buf[BUF_SIZE];
 				int strlen = read(main_serv_sock, buf, BUF_SIZE);
+				gettimeofday(&start_time, NULL);
 				sendToRoots(buf);
 				close(main_serv_sock);
+				gettimeofday(&end_time, NULL);
+
+				printf("start time %ld.%ld\n", start_time.tv_sec, start_time.tv_usec);
+				if(end_time.tv_usec - start_time.tv_usec < 0)
+				{
+					printf("diff time %ld.%ld\n", end_time.tv_sec - start_time.tv_sec-1, end_time.tv_usec - start_time.tv_usec+1000000);
+				}
+				else{
+					printf("diff time %ld.%ld\n", end_time.tv_sec - start_time.tv_sec, end_time.tv_usec - start_time.tv_usec);
+				}
+				printf("end time %ld.%ld\n", end_time.tv_sec, end_time.tv_usec);
+
+				sleep(10);
 				return 0;
 			}				//IF SERV
 			else		//ep_events[i].data.fd == Root Subscriber //DISCONNECT

@@ -6,12 +6,13 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="sendToSub" key="selection"/>
+		<item value="cout" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="cout"/>
 			<item value="sendToSub"/>
 			<item value="buf"/>
 			<item value="str"/>
@@ -26,7 +27,6 @@
 			<item value="open"/>
 			<item value="&quot;A&quot;"/>
 			<item value="A"/>
-			<item value="levels"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -34,8 +34,8 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="442" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="788" key="DIALOG_HEIGHT"/>
-		<item value="1154" key="DIALOG_X_ORIGIN"/>
-		<item value="227" key="DIALOG_Y_ORIGIN"/>
+		<item value="987" key="DIALOG_HEIGHT"/>
+		<item value="883" key="DIALOG_X_ORIGIN"/>
+		<item value="134" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
