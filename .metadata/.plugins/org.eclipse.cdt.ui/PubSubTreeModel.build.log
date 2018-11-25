@@ -1,4 +1,4 @@
-14:20:54 **** Build of configuration Debug for project PubSubTreeModel ****
+13:35:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
 make all 
 Building file: ../main.cpp
 Invoking: GCC C++ Compiler
@@ -57,11 +57,11 @@ In file included from ../main.cpp:19:0:
   for (int idx = 0; idx < vector_root.size(); idx++) {
                     ~~~~^~~~~~~~~~~~~~~~~~~~
 ../main.cpp: In function ‘bool isSubset(std::vector<std::__cxx11::basic_string<char> >, std::vector<std::__cxx11::basic_string<char> >)’:
-../main.cpp:255:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../main.cpp:290:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
   for (int pdx = 0; pdx < parentv.size(); pdx++) {
                     ~~~~^~~~~~~~~~~~~~~~
 ../main.cpp: In function ‘void sendInfo(Subscriber*)’:
-../main.cpp:278:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+../main.cpp:314:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
   Json::FastWriter writer;
                    ^~~~~~
 In file included from ../main.cpp:19:0:
@@ -69,14 +69,14 @@ In file included from ../main.cpp:19:0:
  class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
                                                                       ^~~~~~~~~~
 ../main.cpp: In function ‘void sendRootInfo(int)’:
-../main.cpp:293:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+../main.cpp:329:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
   Json::FastWriter writer;
                    ^~~~~~
 In file included from ../main.cpp:19:0:
 ../json/json.h:1985:70: note: declared here
  class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
                                                                       ^~~~~~~~~~
-../main.cpp:295:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../main.cpp:331:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
   for (int idx = 0; idx < vector_root.size(); idx++) {
                     ~~~~^~~~~~~~~~~~~~~~~~~~
 Finished building: ../main.cpp
@@ -87,5 +87,5 @@ g++  -o "PubSubTreeModel"  ./Publisher.o ./Subscriber.o ./jsoncpp.o ./main.o
 Finished building target: PubSubTreeModel
  
 
-14:20:55 Build Finished. 0 errors, 14 warnings. (took 1s.140ms)
+13:35:06 Build Finished. 0 errors, 14 warnings. (took 931ms)
 

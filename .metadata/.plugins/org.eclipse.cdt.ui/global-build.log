@@ -4395,3 +4395,184 @@ Invoking: GCC C++ Linker
 g++  -o "PubSubTreeModel"  ./Publisher.o ./Subscriber.o ./jsoncpp.o ./main.o   
 Finished building target: PubSubTreeModel
  
+13:25:59 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../Subscriber.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Subscriber.d" -MT"Subscriber.o" -o "Subscriber.o" "../Subscriber.cpp"
+Finished building: ../Subscriber.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:127:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:135:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++)
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void printTree(Subscriber*)’:
+../main.cpp:147:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < sub->getSubscription().size(); idx++)
+                    ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > returnAttr(std::__cxx11::string)’:
+../main.cpp:161:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp:164:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < attrarr.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:173:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘int returnPort(std::__cxx11::string)’:
+../main.cpp:181:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:191:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:199:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:208:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool isSubset(std::vector<std::__cxx11::basic_string<char> >, std::vector<std::__cxx11::basic_string<char> >)’:
+../main.cpp:290:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int pdx = 0; pdx < parentv.size(); pdx++) {
+                    ~~~~^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:314:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘void sendRootInfo(int)’:
+../main.cpp:329:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp:331:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Publisher.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 
+13:35:05 **** Incremental Build of configuration Debug for project PubSubTreeModel ****
+make all 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main(int, char**)’:
+../main.cpp:127:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (int idx = 0; idx < vector_root.size(); idx++) {
+                         ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:135:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (int idx = 0; idx < vector_root.size(); idx++)
+                        ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void printTree(Subscriber*)’:
+../main.cpp:147:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < sub->getSubscription().size(); idx++)
+                    ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::vector<std::__cxx11::basic_string<char> > returnAttr(std::__cxx11::string)’:
+../main.cpp:161:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp:164:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < attrarr.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnPort(int)’:
+../main.cpp:173:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘int returnPort(std::__cxx11::string)’:
+../main.cpp:181:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘std::__cxx11::string returnType(std::__cxx11::string)’:
+../main.cpp:191:15: warning: ‘Json::Reader::Reader()’ is deprecated: Use CharReader and CharReaderBuilder instead [-Wdeprecated-declarations]
+  Json::Reader reader;
+               ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1439:3: note: declared here
+   Reader();
+   ^~~~~~
+../main.cpp: In function ‘void updateTree(Subscriber*)’:
+../main.cpp:199:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp:208:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+../main.cpp: In function ‘bool isSubset(std::vector<std::__cxx11::basic_string<char> >, std::vector<std::__cxx11::basic_string<char> >)’:
+../main.cpp:290:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int pdx = 0; pdx < parentv.size(); pdx++) {
+                    ~~~~^~~~~~~~~~~~~~~~
+../main.cpp: In function ‘void sendInfo(Subscriber*)’:
+../main.cpp:314:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp: In function ‘void sendRootInfo(int)’:
+../main.cpp:329:19: warning: ‘FastWriter’ is deprecated: Use StreamWriterBuilder instead [-Wdeprecated-declarations]
+  Json::FastWriter writer;
+                   ^~~~~~
+In file included from ../main.cpp:19:0:
+../json/json.h:1985:70: note: declared here
+ class JSONCPP_DEPRECATED("Use StreamWriterBuilder instead") JSON_API FastWriter
+                                                                      ^~~~~~~~~~
+../main.cpp:331:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int idx = 0; idx < vector_root.size(); idx++) {
+                    ~~~~^~~~~~~~~~~~~~~~~~~~
+Finished building: ../main.cpp
+ 
+Building target: PubSubTreeModel
+Invoking: GCC C++ Linker
+g++  -o "PubSubTreeModel"  ./Publisher.o ./Subscriber.o ./jsoncpp.o ./main.o   
+Finished building target: PubSubTreeModel
+ 

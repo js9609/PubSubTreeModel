@@ -164,6 +164,7 @@ int main(int argc, char *argv[]) {
 				read_cnt = read(parent_sock, filebuf, FILE_BUF_SIZE);
 				if (read_cnt > 0) {
 					int filesize = atoi(filebuf);
+					//ERROR HANDLING FOR INCOMING 0 SIZE FILE
 					if (filesize > 0) {
 						cout << filesize << endl;
 						fp = fopen(myInfo, "wb");
@@ -220,7 +221,6 @@ bool filterFile(const char* filename, vector<string> my_attribute) {
 	Json::Value attrbuf;
 	Json::Value attrarr;
 	Json::Reader reader;
-
 	ifstream file(filename);
 	reader.parse(file, attrbuf);
 	attrarr = attrbuf["attr"];
@@ -242,7 +242,7 @@ bool filter(vector<string> file_attribute, vector<string> my_attribute) {
 }
 
 void sendToSub(const char* filename, vector<int> childsockets) {
-
+	//OPENING AND CLOSING FILE REPEAT MAKES WASTE == > FIXED BY REWIND
 	int filesize;
 	FILE * fp;
 	char buf[BUF_SIZE];

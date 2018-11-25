@@ -215,33 +215,68 @@ void updateTree(Subscriber* child) {
 }
 
 bool insertSubscriber(Subscriber *child, Subscriber *parent) {
-	if (!isDependent(child, parent)) {
+//	if (!isDependent(child, parent)) {
+//		return false;
+//	}
+//	if (!parent->hasChild()) {
+//		parent->addChild(child);
+//		parent->toggleChanged(true);
+//		return true;
+//	}
+//	for (int cdx = 0; cdx < parent->getNumOfChilds(); cdx++) {
+//		if (insertSubscriber(child, parent->getChild(cdx))) {
+//			return true;
+//		} else {
+//			if (isDependent(parent->getChild(cdx), child)) {
+//				Subscriber* tmp = parent->getChild(cdx);
+//				parent->setChild(cdx, child);
+//				child->addChild(tmp);
+//				parent->toggleChanged(true);
+//				child->toggleChanged(true);
+//				return true;
+//			} else if (parent->getRemain_child() > 0) {
+//				parent->addChild(child);
+//				parent->toggleChanged(true);
+//				return true;
+//			} else
+//				return false;
+//
+//		}
+//	}
+//	return false;
+	/****IF CHILD CAN'T BE CHILD OF CERTAIN SUBTREE BELOW PARENT ******/
+	if (!isDependent(child, parent))
 		return false;
-	}
+
+	//IF PARENT HAS NO CHILD TO COMPARE ADD
 	if (!parent->hasChild()) {
 		parent->addChild(child);
 		parent->toggleChanged(true);
 		return true;
 	}
+
+	//CHECK WHETHER FOLLOWING CHILD CAN BE PARENT OF OTHER CHILD
+	for (int cdx = 0; cdx < parent->getNumOfChilds(); cdx++) {
+		if (isDependent(parent->getChild(cdx), child)) {
+			Subscriber* tmp = parent->getChild(cdx);
+			parent->setChild(cdx, child);
+			child->addChild(tmp);
+			parent->toggleChanged(true);
+			child->toggleChanged(true);
+			return true;
+		}
+	}
+
 	for (int cdx = 0; cdx < parent->getNumOfChilds(); cdx++) {
 		if (insertSubscriber(child, parent->getChild(cdx))) {
 			return true;
-		} else {
-			if (isDependent(parent->getChild(cdx), child)) {
-				Subscriber* tmp = parent->getChild(cdx);
-				parent->setChild(cdx, child);
-				child->addChild(tmp);
-				parent->toggleChanged(true);
-				child->toggleChanged(true);
-				return true;
-			} else if (parent->getRemain_child() > 0) {
-				parent->addChild(child);
-				parent->toggleChanged(true);
-				return true;
-			} else
-				return false;
-
 		}
+	}
+	//IF NO MATCH IN CHILD'S SUBTREE
+	if (parent->getRemain_child() > 0) {
+		parent->addChild(child);
+		parent->toggleChanged(true);
+		return true;
 	}
 	return false;
 }
@@ -269,7 +304,7 @@ void error_handling(string msg) {
 void sendToAllChild(Subscriber* sub) {
 	sendInfo(sub);
 	for (int idx = 0; idx < sub->getNumOfChilds(); idx++) {
-		sendInfo(sub->getChild(idx));
+		sendToAllChild(sub->getChild(idx));
 	}
 }
 

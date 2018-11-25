@@ -7,7 +7,7 @@
 
 #ifndef SUBSCRIBER_H_
 #define SUBSCRIBER_H_
-#define CHILD_N 3
+#define CHILD_N 2
 #include "json/json.h"
 #include <iostream>
 #include <string>
